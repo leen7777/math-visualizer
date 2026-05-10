@@ -1,0 +1,6 @@
+# Claude Code worktrees (local-only, not part of project history)
+.claude/worktrees/
+
+# Claude Code local settings
+.claude/settings.local.json
+.claude/launch.json
