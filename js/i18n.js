@@ -196,14 +196,6 @@ const UI = {
     alkInitDesc    : 'اكتب أي جملة عربية، واضغط «شفّر واكسر» لرؤية كيف يحوّلها مفتاح سرّي إلى هذيان، ثم كيف يكسر الكندي الشفرة بعدّ تواتر الحروف فقط.',
     alkEmpty       : '⬆ اكتب جملة عربية واضغط الزر',
 
-    /* ── al-Qūhī Trisection ── */
-    tabQuhi        : 'تثليث الكوهي',
-    quhiTitle      : 'تثليث الزاوية بتقاطع المخروطيات',
-    quhiSource     : 'أبو سهل الكوهي (~980م) · بغداد',
-    quhiStart      : '▶ ثلّث الزاوية',
-    quhiInitDesc   : 'اختر زاوية واضغط «ثلّث» لمشاهدة كيف حلّ الكوهي تثليث الزاوية بتقاطع قطع مكافئ مع قطع زائد.',
-    quhiEmpty      : '⬆ اختر زاوية ثم اضغط ثلّث الزاوية',
-
     /* ── Pythagorean ── */
     tabPyth        : 'مبرهنة فيثاغورس',
     pythTitle      : 'مبرهنة فيثاغورس البرهان الهندسي',
@@ -230,17 +222,6 @@ const UI = {
     kashiStart     : '▶ ابدأ المضاعفة',
     kashiInitDesc  : 'اضغط «ابدأ» لمشاهدة كيف ضاعف الكاشي عدد أضلاع المضلّع المنتظم 28 مرّة حتى حصل على π بستة عشر منزلة عشرية.',
     kashiEmpty     : '⬆ اضغط ابدأ المضاعفة',
-
-    /* ── Trigonometry / Abū al-Wafāʾ ── */
-    catTrig        : 'علم المثلثات',
-    tabWafa        : 'أبو الوفاء',
-    wafTitle       : 'متطابقات أبي الوفاء المثلثيّة',
-    wafSource      : 'أبو الوفاء البوزجاني (940–998م) · كتاب «المجسطي» · بغداد',
-    wafLabelA      : 'الزاوية α (بالدرجات)',
-    wafLabelB      : 'الزاوية β (بالدرجات)',
-    wafStart       : '▶ ابدأ',
-    wafInitDesc    : 'أدخل زاويتين α و β واضغط «ابدأ» لمشاهدة متطابقات أبي الوفاء خطوة بخطوة.',
-    wafEmpty       : '⬆ أدخل الزاويتين واضغط ابدأ',
   },
 
   en: {
@@ -433,14 +414,6 @@ const UI = {
     alkInitDesc    : 'Type any Arabic sentence and press Encrypt & Crack to see how a secret key turns it into gibberish — then how Al-Kindī breaks the cipher using only letter counts.',
     alkEmpty       : '⬆ Type an Arabic sentence and press the button',
 
-    /* ── al-Qūhī Trisection ── */
-    tabQuhi        : 'al-Qūhī Trisection',
-    quhiTitle      : 'Angle Trisection by Intersecting Conic Sections',
-    quhiSource     : 'Abū Sahl al-Qūhī (~980 CE) · Baghdad',
-    quhiStart      : '▶ Trisect the Angle',
-    quhiInitDesc   : 'Choose an angle and press "Trisect" to see how al-Qūhī trisected the angle by intersecting a parabola with a hyperbola.',
-    quhiEmpty      : '⬆ Choose an angle, then press Trisect the Angle',
-
     /* ── Pythagorean ── */
     tabPyth        : 'Pythagorean Theorem',
     pythTitle      : 'Pythagorean Theorem Geometric Proof',
@@ -467,17 +440,6 @@ const UI = {
     kashiStart     : '▶ Start doubling',
     kashiInitDesc  : 'Press "Start" to see how al-Kashi doubled the sides of a regular polygon 28 times to obtain π to 16 decimal places.',
     kashiEmpty     : '⬆ Press Start doubling',
-
-    /* ── Trigonometry / Abū al-Wafāʾ ── */
-    catTrig        : 'Trigonometry',
-    tabWafa        : 'Abū al-Wafāʾ',
-    wafTitle       : "Abū al-Wafāʾ's Trigonometric Identities",
-    wafSource      : 'Abū al-Wafāʾ al-Būzjānī (940–998 CE) · al-Majisṭī · Baghdad',
-    wafLabelA      : 'Angle α (degrees)',
-    wafLabelB      : 'Angle β (degrees)',
-    wafStart       : '▶ Start',
-    wafInitDesc    : 'Enter two angles α and β and press Start to walk through Abū al-Wafāʾ\'s identities step by step.',
-    wafEmpty       : '⬆ Enter the two angles and press Start',
   }
 };
 
