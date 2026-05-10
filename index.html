@@ -1,0 +1,2330 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <script>if(!location.search||!location.search.includes('v='))location.replace('/?v=215');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الرياضيات البصرية · Visual Mathematics — مرجع مرئي للرياضيات في الحضارة الإسلامية</title>
+  <meta name="description" content="موقع مرجعي تفاعلي يُحاكي طُرُق رياضيّي الحضارة الإسلامية: القسمة المطوّلة عند الكاشي، الجبر عند الخوارزمي، الكسور العشرية عند الإقليدسي، تحليل الشفرات عند الكندي، الميزان، وأكثر." />
+  <meta name="keywords" content="الرياضيات البصرية, الحضارة الإسلامية, الخوارزمي, الكاشي, الكندي, الإقليدسي, الجبر, القسمة المطوّلة, الميزان, Visual Mathematics, Islamic mathematics, al-Khwārizmī, al-Kāshī, al-Kindī, al-Uqlīdisī" />
+  <meta name="author" content="Visual Mathematics" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="الرياضيات البصرية · Visual Mathematics" />
+  <meta property="og:description" content="مرجع مرئي تفاعلي للرياضيات في الحضارة الإسلامية مَحاكاة طُرُق الخوارزمي، الكاشي، الإقليدسي، الكندي، وغيرهم." />
+  <meta property="og:locale" content="ar_SA" />
+  <meta property="og:locale:alternate" content="en_US" />
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="الرياضيات البصرية · Visual Mathematics" />
+  <meta name="twitter:description" content="مرجع مرئي تفاعلي للرياضيات في الحضارة الإسلامية." />
+
+  <!-- Favicon (inline SVG, no asset needed) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230E1A12'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-size='22' font-family='serif' fill='%23D9DED5'%3E√%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Courier+Prime:ital,wght@0,400;0,700&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════
+   VISUAL MATHEMATICS Full Horizontal v5
+   Dark green header + tab strip + full-width content
+══════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&family=Courier+Prime:ital,wght@0,400;0,700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --frame:        #374836;
+  --frame2:       #445E4F;
+  --frame-border: rgba(68,94,79,0.28);
+  --frame-hover:  rgba(68,94,79,0.18);
+  --frame-active: rgba(68,94,79,0.38);
+
+  --bg:           #FBFCF4;
+  --surface:      #F9FBF3;
+  --surface2:     #F2F5EE;
+
+  --gold:         #D9DED5;
+  --gold-hi:      #E8EDE4;
+  --gold-dark:    #B0BAB4;
+
+  --text:         #1C2B20;
+  --text2:        #334438;
+  --muted:        #4F6658;
+  --faint:        #8FA898;
+
+  --nav-text:     rgba(217,222,213,0.62);
+  --nav-hover:    rgba(249,251,243,0.92);
+  --nav-active:   #F9FBF3;
+
+  --crimson:      #7A3535;
+  --navy:         #2A4A5E;
+  --olive:        #445E4F;
+
+  --border:       rgba(68,94,79,0.22);
+  --border-soft:  rgba(68,94,79,0.11);
+
+  --shadow-xs: 0 1px 2px rgba(55,72,54,0.06);
+  --shadow-sm: 0 1px 3px rgba(55,72,54,0.08),0 2px 6px rgba(55,72,54,0.04);
+  --shadow:    0 2px 8px rgba(55,72,54,0.10),0 1px 3px rgba(55,72,54,0.05);
+  --shadow-md: 0 4px 16px rgba(55,72,54,0.12),0 2px 6px rgba(55,72,54,0.05);
+  --shadow-lg: 0 8px 32px rgba(55,72,54,0.14),0 4px 12px rgba(55,72,54,0.06);
+  --shadow-xl: 0 16px 48px rgba(55,72,54,0.16),0 8px 20px rgba(55,72,54,0.07);
+}
+
+/* ── FONTS ───────────────────────────────── */
+[dir="rtl"] body,[dir="rtl"] .panel-title,[dir="rtl"] .panel-source,
+[dir="rtl"] .step-desc,[dir="rtl"] .tab-btn,[dir="rtl"] .input-label,
+[dir="rtl"] .row-label,[dir="rtl"] .working-box,[dir="rtl"] .fp-box-title,
+[dir="rtl"] .fp-formula,[dir="rtl"] .miz-box-title,[dir="rtl"] .dec-hist-box
+{ font-family: 'Amiri','Traditional Arabic',serif; }
+[dir="ltr"] body,[dir="ltr"] .panel-title,[dir="ltr"] .panel-source,
+[dir="ltr"] .step-desc,[dir="ltr"] .tab-btn,[dir="ltr"] .input-label,
+[dir="ltr"] .row-label,[dir="ltr"] .working-box,[dir="ltr"] .fp-box-title,
+[dir="ltr"] .fp-formula,[dir="ltr"] .miz-box-title,[dir="ltr"] .dec-hist-box
+{ font-family: 'Lora',Georgia,serif; }
+
+/* ── BODY column flex ──────────────────── */
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('/assets/math-bg.png?v=1');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 1;
+}
+body::after { display: none; }
+#math-bg { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; opacity: 0.018; }
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(68,94,79,0.30); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(68,94,79,0.50); }
+
+/* ══════════════════════════════════════════
+   TOP BAR  (order 0 always first)
+══════════════════════════════════════════ */
+.top-bar {
+  height: 58px;
+  background-color: #0E1A12;
+  background-image:
+    linear-gradient(90deg, rgba(14,26,18,0.86) 0%, rgba(14,26,18,0.68) 50%, rgba(14,26,18,0.86) 100%),
+    url('/assets/circuit-bg.png?v=1');
+  background-size: cover, 380px auto;
+  background-position: center, center;
+  background-repeat: no-repeat, repeat;
+  background-blend-mode: normal, screen;
+  border-bottom: 1px solid rgba(217,222,213,0.10);
+  box-shadow: 0 2px 14px rgba(8,16,12,0.40), inset 0 0 60px rgba(8,16,12,0.4);
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  flex-shrink: 0;
+  z-index: 30;
+  position: relative;
+  order: 0;
+  gap: 0;
+}
+.top-bar::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(217,222,213,0.55) 25%, rgba(217,222,213,0.55) 75%, transparent 100%);
+  box-shadow: 0 0 8px rgba(217,222,213,0.40);
+}
+
+.top-bar-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.top-bar-brand-ar {
+  font-family: 'Amiri','Traditional Arabic',serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: #FBFCF4;
+  letter-spacing: 0.3px;
+  text-shadow: 0 0 14px rgba(217,222,213,0.40), 0 0 28px rgba(150,200,180,0.20), 0 1px 3px rgba(0,0,0,0.6);
+}
+.top-bar-brand-sep { color: rgba(217,222,213,0.55); font-size: 15px; font-weight: 300; text-shadow: 0 0 6px rgba(217,222,213,0.35); }
+.top-bar-brand-en {
+  font-family: 'Lora',Georgia,serif;
+  font-size: 14px;
+  color: rgba(217,222,213,0.85);
+  font-style: italic;
+  text-shadow: 0 0 10px rgba(217,222,213,0.30), 0 1px 3px rgba(0,0,0,0.55);
+}
+
+.top-bar-math {
+  flex: 1;
+  text-align: center;
+  font-family: Georgia,serif;
+  font-size: 15px;
+  letter-spacing: 16px;
+  color: rgba(217,222,213,0.55);
+  text-shadow: 0 0 10px rgba(217,222,213,0.45), 0 0 20px rgba(150,200,180,0.25);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.top-bar-actions { display: flex; align-items: center; }
+.btn-lang {
+  background: rgba(217,222,213,0.08);
+  border: 1px solid rgba(217,222,213,0.28);
+  color: rgba(217,222,213,0.82);
+  padding: 6px 17px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12.5px;
+  font-family: 'Inter',sans-serif;
+  transition: all 0.15s;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+.btn-lang:hover { border-color: var(--gold-hi); color: #FBFCF4; background: rgba(217,222,213,0.18); }
+
+/* ══════════════════════════════════════════
+   TAB STRIP (the sidebar now horizontal)
+   order: 1 renders between top-bar and main
+══════════════════════════════════════════ */
+.app-title { display: none !important; }
+.lang-divider { display: none !important; }
+
+.sidebar {
+  /* Layout */
+  order: 1;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  flex-direction: row;
+  align-items: stretch;
+  padding: 0 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+
+  /* Visual */
+  background-color: #14241A;
+  background-image:
+    linear-gradient(90deg, rgba(20,36,26,0.84) 0%, rgba(20,36,26,0.66) 50%, rgba(20,36,26,0.84) 100%),
+    url('/assets/circuit-bg.png?v=1');
+  background-size: cover, 320px auto;
+  background-position: center, center;
+  background-repeat: no-repeat, repeat;
+  background-blend-mode: normal, screen;
+  border-bottom: 1px solid rgba(217,222,213,0.08);
+  border-left: none;
+  border-right: none;
+  box-shadow: 0 2px 12px rgba(55,72,54,0.35);
+  direction: rtl;
+  z-index: 20;
+  position: relative;
+  display: flex;
+  gap: 0;
+}
+.sidebar::-webkit-scrollbar { display: none; }
+
+/* ── TAB BUTTONS horizontal pills ─────── */
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--nav-text);
+  padding: 0 15px;
+  height: 42px;
+  margin: 0;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: inherit;
+  transition: color 0.15s, background 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  position: relative;
+  width: auto;
+  line-height: 1;
+}
+.tab-btn:hover { color: var(--nav-hover); background: var(--frame-hover); }
+.tab-btn.active {
+  color: var(--nav-active);
+  background: var(--frame-active);
+  font-weight: 700;
+}
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10px; right: 10px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px 2px 0 0;
+}
+.tab-btn.active::before { display: none; }
+.tab-icon { font-size: 12px; opacity: 0.8; flex-shrink: 0; }
+
+/* ── CATEGORY DIVIDERS ───────────────────── */
+.cat-label {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 0;
+  margin: 0 4px;
+  font-size: 0;
+  letter-spacing: 0;
+  color: transparent;
+  overflow: hidden;
+  width: 1px;
+  background: rgba(68,94,79,0.22);
+  align-self: stretch;
+}
+.cat-label::after { display: none; }
+
+/* ══════════════════════════════════════════
+   MAIN CONTENT  (order: 2 below tab strip)
+══════════════════════════════════════════ */
+.main {
+  order: 2;
+  flex: 1;
+  overflow-y: auto;
+  padding: 38px 56px;
+  background-color: transparent;
+  background-image:
+    radial-gradient(rgba(68,94,79,0.055) 1px, transparent 1px);
+  background-size: 26px 26px;
+  position: relative;
+  z-index: 10;
+  min-width: 0;
+  min-height: 0;
+}
+.content-row { display: contents; }
+
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* ── PANEL TITLE ─────────────────────────── */
+.panel-title {
+  font-size: 31px;
+  color: var(--text);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1.5px solid var(--border-soft);
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+.panel-title::before {
+  content: '';
+  width: 5px;
+  height: 32px;
+  background: linear-gradient(180deg, var(--frame2), var(--frame));
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+[dir="ltr"] .panel-title { flex-direction: row; }
+.panel-source {
+  color: var(--muted);
+  font-size: 12.5px;
+  font-style: italic;
+  margin-top: 7px;
+  margin-bottom: 24px;
+  padding-right: 20px;
+  opacity: 0.85;
+}
+[dir="ltr"] .panel-source { padding-right: 0; padding-left: 20px; text-align: left; }
+
+/* ── INPUT CARD ──────────────────────────── */
+.input-card {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  box-shadow: var(--shadow-sm);
+}
+.input-group { display: flex; flex-direction: column; gap: 5px; }
+.input-label {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Inter','Courier Prime',sans-serif;
+}
+[dir="ltr"] .input-label { text-align: left; }
+.input-field {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-family: 'Courier Prime',monospace;
+  width: 180px;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.input-field:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(68,94,79,0.12); }
+.input-select {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  padding: 10px 8px;
+  border-radius: 8px;
+  font-size: 22px;
+  font-family: inherit;
+  width: 72px;
+  text-align: center;
+  outline: none;
+}
+.eq-symbol { font-size: 24px; color: var(--muted); padding-bottom: 4px; }
+.btn-primary {
+  background: var(--frame);
+  color: #C4E8CA;
+  border: none;
+  padding: 11px 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+  box-shadow: var(--shadow-sm);
+}
+.btn-primary:hover { background: #173B22; box-shadow: var(--shadow-md); transform: translateY(-1px); }
+.btn-primary:active { transform: translateY(0); }
+
+/* ── STEP / VIZ ──────────────────────────── */
+.step-desc {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-right: 3px solid var(--gold);
+  border-radius: 8px;
+  padding: 13px 20px;
+  margin-bottom: 18px;
+  font-size: 16px;
+  line-height: 2;
+  min-height: 52px;
+  color: var(--text2);
+  font-style: italic;
+  box-shadow: var(--shadow-sm);
+}
+[dir="ltr"] .step-desc { border-right: 1px solid var(--border-soft); border-left: 3px solid var(--gold); text-align: left; direction: ltr; }
+.viz-card {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  padding: 26px;
+  min-height: 200px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  box-shadow: var(--shadow);
+}
+
+/* ── CONTROLS ────────────────────────────── */
+.step-controls { display: flex; gap: 10px; align-items: center; }
+.btn-nav {
+  background: var(--surface);
+  color: var(--text2);
+  border: 1px solid var(--border-soft);
+  padding: 9px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.15s;
+  box-shadow: var(--shadow-sm);
+}
+.btn-nav:hover:not(:disabled) { border-color: var(--gold); color: var(--text); box-shadow: var(--shadow); }
+.btn-nav:disabled { opacity: 0.25; cursor: not-allowed; }
+.step-counter { color: var(--muted); font-size: 12px; flex: 1; text-align: center; font-family: 'Courier Prime',monospace; letter-spacing: 0.5px; }
+.empty-state { text-align: center; color: var(--faint); font-size: 15px; padding: 40px; font-style: italic; }
+
+/* ── MATH GRIDS ──────────────────────────── */
+.div-grid { display: flex; flex-direction: column; align-items: flex-start; direction: ltr; gap: 2px; }
+.row-label { font-size: 12px; color: var(--muted); margin-bottom: 3px; direction: rtl; font-style: italic; }
+[dir="ltr"] .row-label { text-align: left; }
+.grid-row { display: flex; direction: ltr; }
+.cell { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; font-size: 19px; font-weight: 600; border-radius: 6px; transition: all 0.2s; font-family: 'Courier Prime',monospace; }
+.cell-q { color: var(--gold-dark); } .cell-d { color: var(--text); } .cell-b { color: var(--navy); }
+.cell-active { background: rgba(68,94,79,0.13); border: 1.5px solid var(--gold); }
+.cell-used { color: var(--faint); text-decoration: line-through; }
+.h-rule { height: 1px; background: var(--border-soft); margin: 3px 0; }
+.sub-block { background: var(--bg); border: 1px solid var(--border-soft); border-radius: 8px; padding: 12px 18px; margin-top: 14px; direction: ltr; display: inline-block; font-size: 17px; font-family: 'Courier Prime',monospace; }
+.sub-line { height: 1px; background: var(--border-soft); margin: 5px 0; }
+.result-box { text-align: center; padding: 16px 22px; border-radius: 10px; margin-top: 16px; }
+.result-ok  { background: rgba(74,106,46,0.07); border: 1px solid rgba(74,106,46,0.28); color: #3A5020; }
+.result-err { background: rgba(155,43,43,0.06); border: 1px solid rgba(155,43,43,0.28); color: var(--crimson); }
+.result-text { font-size: 19px; font-weight: 700; font-family: 'Courier Prime',monospace; }
+.pairs-row { display: flex; gap: 5px; direction: ltr; margin-bottom: 12px; }
+.pair-block { display: flex; }
+.pair-cell { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 600; border: 1.5px solid var(--border-soft); border-radius: 6px; background: var(--bg); transition: all 0.2s; font-family: 'Courier Prime',monospace; color: var(--text); }
+.pair-active { border-color: var(--crimson)!important; background: rgba(155,43,43,0.07)!important; color: var(--crimson)!important; }
+.pair-done { border-color: var(--olive)!important; color: var(--olive)!important; background: rgba(74,106,46,0.07)!important; }
+.pair-sep { width: 7px; display: flex; align-items: center; justify-content: center; color: var(--faint); font-size: 18px; }
+.root-row { display: flex; gap: 5px; direction: ltr; margin-bottom: 14px; }
+.root-cell { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700; color: var(--gold-dark); border-bottom: 2px solid var(--gold); font-family: 'Courier Prime',monospace; }
+.triples-row { display: flex; gap: 5px; direction: ltr; margin-bottom: 12px; }
+.triple-block { display: flex; }
+.triple-sep { width: 7px; display: flex; align-items: center; justify-content: center; color: var(--faint); font-size: 18px; }
+.working-box { background: var(--surface); border: 1px solid var(--border-soft); border-radius: 10px; padding: 12px 18px; font-size: 14px; direction: rtl; line-height: 2.3; display: inline-block; min-width: 240px; box-shadow: var(--shadow-sm); }
+[dir="ltr"] .working-box { direction: ltr; }
+.wval { font-weight: 700; font-size: 17px; font-family: 'Courier Prime',monospace; }
+
+/* ── CUBE ROOT (incremental method: (r+1)³ − r³ = 3r²+3r+1) ── */
+.cb-identity { background: rgba(43,80,112,0.08); border: 1px solid rgba(43,80,112,0.25); border-radius: 10px; padding: 10px 18px; margin-bottom: 14px; text-align: center; direction: ltr; }
+.cb-identity-title { font-size: 12px; letter-spacing: 0.06em; color: var(--faint); text-transform: uppercase; margin-bottom: 4px; }
+.cb-identity-eq { font-family: 'Courier Prime',monospace; font-size: 19px; font-weight: 700; color: #2B5070; }
+.cb-bounds { display: inline-flex; flex-wrap: wrap; gap: 14px 24px; padding: 8px 14px; margin-bottom: 14px; background: rgba(194,164,109,0.08); border: 1px solid var(--border-soft); border-radius: 8px; direction: ltr; }
+.cb-bounds-row { font-family: 'Courier Prime',monospace; font-size: 15px; }
+.cb-bounds-label { color: var(--faint); margin-right: 6px; }
+.cb-bounds-val { font-weight: 700; color: #8B5020; }
+.cb-history { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; direction: ltr; margin-top: 6px; }
+.cb-hist-cell { background: var(--surface); border: 1px solid var(--border-soft); border-radius: 8px; padding: 6px 10px; font-family: 'Courier Prime',monospace; font-size: 13px; min-width: 92px; text-align: center; transition: all 0.25s; }
+.cb-hist-r   { font-weight: 700; color: #2B5070; }
+.cb-hist-rem { color: #5C3A7A; margin-top: 2px; }
+.cb-hist-sub { color: #8B5020; font-size: 12px; font-family: 'Courier Prime',monospace; line-height: 1; }
+.cb-hist-active { background: rgba(194,164,109,0.18); border-color: var(--gold, #c2a46d); box-shadow: 0 0 0 2px rgba(194,164,109,0.25); }
+.cb-hist-arrow { color: var(--faint); font-size: 16px; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+
+/* ── SQRT MANUSCRIPT TABLEAU (in-place al-Kāshī algorithm) ── */
+.sq-tab { display: inline-block; padding: 8px; font-family: 'Courier Prime',monospace; direction: ltr; }
+.sq-grid { display: inline-grid; grid-template-columns: repeat(var(--cols), 40px); grid-auto-rows: 40px; background: var(--bg); }
+.sq-grid > * { display: flex; align-items: center; justify-content: center; transition: all .25s; box-sizing: border-box; position: relative; }
+.sq-rootcell { font-size: 22px; font-weight: 700; color: var(--gold-dark); background: rgba(194,164,109,0.18); border: 1.5px solid var(--gold-dark); border-bottom: 2.5px solid var(--gold-dark); margin: 0 -1.5px 0 0; }
+.sq-rootcell.sq-active { background: rgba(155,43,43,0.12); color: var(--crimson); border-color: var(--crimson); z-index: 2; }
+.sq-topcell { font-size: 18px; font-weight: 600; color: var(--text); border: 1.5px solid var(--gold-dark); margin: 0 -1.5px -1.5px 0; background: var(--bg); }
+.sq-topcell.sq-original { background: rgba(194,164,109,0.10); border-top-width: 2.5px; }
+.sq-topcell.sq-pair-end { border-right-width: 2.5px; margin-right: -2.5px; }
+.sq-topcell.sq-struck { color: var(--muted); opacity: 0.55; background: rgba(245,230,200,0.55); }
+.sq-topcell.sq-active { background: rgba(155,43,43,0.14); color: var(--crimson); border-color: var(--crimson); z-index: 2; }
+.sq-topcell.sq-active.sq-struck { color: var(--crimson); opacity: 0.85; }
+.sq-topcell.sq-subtrahend { color: var(--sienna, #8B5020); font-style: italic; font-weight: 600; background: rgba(139,80,32,0.06); border-bottom: 3px solid var(--text); margin-bottom: -3px; z-index: 1; }
+.sq-topcell.sq-subtrahend.sq-active { color: var(--crimson); border-color: var(--crimson); background: rgba(155,43,43,0.10); border-bottom: 3px solid var(--crimson); z-index: 2; }
+.sq-bottomcell { font-size: 18px; font-weight: 700; color: var(--olive); border: 1.5px solid var(--olive); margin: 0 -1.5px -1.5px 0; background: rgba(74,106,46,0.08); }
+.sq-bottomcell.sq-struck { color: var(--muted); opacity: 0.55; background: rgba(245,230,200,0.55); }
+.sq-bottomcell.sq-active { background: rgba(155,43,43,0.14); color: var(--crimson); border-color: var(--crimson); z-index: 2; }
+.sq-bottomcell.sq-active.sq-struck { color: var(--crimson); opacity: 0.85; }
+.sq-kashi-box { padding: 18px 24px; }
+.sq-kashi-formula { display: inline-flex; align-items: center; justify-content: center; gap: 12px; font-family: 'Courier Prime',monospace; font-size: 24px; color: var(--text); }
+.sq-kashi-int { font-weight: 700; color: var(--gold-dark); }
+.sq-kashi-plus { font-size: 22px; color: var(--muted); }
+.sq-kashi-frac { display: inline-flex; flex-direction: column; align-items: center; line-height: 1; }
+.sq-kashi-num { font-weight: 700; color: var(--sienna, #8B5020); padding: 0 6px 4px; font-size: 22px; }
+.sq-kashi-bar { display: block; width: 100%; min-width: 90px; height: 2px; background: var(--text); }
+.sq-kashi-den { font-weight: 600; color: var(--navy, #2B5070); padding: 4px 6px 0; font-size: 16px; white-space: nowrap; }
+
+/* ── MIZAN ───────────────────────────────── */
+.miz-layout { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.miz-equation { font-size: 22px; font-weight: 700; color: var(--text); font-family: 'Courier Prime',monospace; }
+.miz-nums { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; justify-content: center; }
+.miz-box { background: var(--surface); border: 1px solid var(--border-soft); border-radius: 10px; padding: 14px 20px; text-align: center; min-width: 120px; box-shadow: var(--shadow-sm); }
+.miz-box-title { font-size: 12px; color: var(--muted); margin-bottom: 7px; font-style: italic; }
+.miz-big { font-size: 24px; font-weight: 700; color: var(--text); font-family: 'Courier Prime',monospace; }
+.miz-chain { font-size: 12px; color: var(--navy); margin-top: 5px; direction: ltr; }
+.miz-dr { font-size: 12px; color: var(--gold-dark); margin-top: 5px; }
+.miz-op-sym { font-size: 30px; color: var(--crimson); }
+.miz-eq-sym { font-size: 26px; color: var(--muted); }
+.op-result-box { background: var(--surface); border: 1px solid var(--border-soft); border-radius: 10px; padding: 12px 20px; text-align: center; font-size: 15px; box-shadow: var(--shadow-sm); }
+.balance-wrap { width: 100%; max-width: 420px; }
+.balance-wrap svg { width: 100%; }
+.lat-wrap { direction: ltr; overflow-x: auto; }
+.lat-wrap svg { display: block; }
+
+/* ── FALSE POSITION ──────────────────────── */
+.fp-layout { display: flex; flex-direction: column; gap: 16px; }
+.fp-equation { background: var(--surface); border: 1px solid var(--border-soft); border-radius: 10px; padding: 14px 22px; font-size: 20px; font-family: 'Courier Prime',monospace; color: var(--text); text-align: center; box-shadow: var(--shadow-sm); }
+.fp-row { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+.fp-box { background: var(--surface); border: 1px solid var(--border-soft); border-radius: 10px; padding: 14px 20px; min-width: 130px; text-align: center; transition: all 0.2s; box-shadow: var(--shadow-sm); }
+.fp-box.active { border-color: var(--gold); background: rgba(68,94,79,0.05); }
+.fp-box.positive { border-color: var(--crimson); background: rgba(155,43,43,0.04); }
+.fp-box.negative { border-color: var(--navy); background: rgba(42,79,110,0.04); }
+.fp-box-title { font-size: 12px; color: var(--muted); margin-bottom: 6px; font-style: italic; }
+.fp-big { font-size: 22px; font-weight: 700; color: var(--text); font-family: 'Courier Prime',monospace; }
+.fp-small { font-size: 13px; color: var(--text2); margin-top: 4px; font-family: 'Courier Prime',monospace; }
+.fp-arrow { font-size: 28px; color: var(--faint); display: flex; align-items: center; }
+.fp-formula { background: var(--surface); border: 1px solid var(--border-soft); border-radius: 10px; padding: 16px 22px; font-size: 16px; font-family: 'Courier Prime',monospace; color: var(--text2); text-align: center; line-height: 2.2; box-shadow: var(--shadow-sm); }
+
+/* ── DECIMAL ─────────────────────────────── */
+.dec-layout { direction: ltr; }
+.dec-display { display: flex; align-items: center; margin-bottom: 16px; direction: ltr; }
+.dec-integer { font-size: 26px; font-weight: 700; color: var(--text); font-family: 'Courier Prime',monospace; background: var(--bg); border: 1.5px solid var(--border); border-radius: 8px 0 0 8px; border-right: none; padding: 10px 14px; }
+.dec-dot { font-size: 26px; font-weight: 700; color: var(--crimson); font-family: 'Courier Prime',monospace; background: var(--bg); border-top: 1.5px solid var(--border); border-bottom: 1.5px solid var(--border); padding: 10px 2px; }
+.dec-digit { font-size: 22px; font-weight: 600; font-family: 'Courier Prime',monospace; background: var(--bg); border: 1.5px solid var(--border-soft); padding: 10px 12px; transition: all 0.2s; color: var(--text2); border-right: none; }
+.dec-digit:last-of-type,.dec-digit-last { border-radius: 0 8px 8px 0; border-right: 1.5px solid var(--border-soft); }
+.dec-digit.active { color: var(--gold-dark); border-color: var(--gold); background: rgba(68,94,79,0.10); }
+.dec-digit.repeat { color: var(--navy); border-color: rgba(42,79,110,0.35); background: rgba(42,79,110,0.06); }
+.dec-step { background: var(--surface); border: 1px solid var(--border-soft); border-radius: 8px; padding: 12px 20px; font-family: 'Courier Prime',monospace; font-size: 14px; line-height: 2; direction: ltr; display: block; max-width: 340px; margin: 12px auto 0; color: var(--text2); box-shadow: var(--shadow-sm); }
+.dec-frac-wrap { display: flex; align-items: center; justify-content: center; gap: 18px; margin-bottom: 18px; flex-wrap: wrap; }
+.dec-frac { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+.dec-frac-num,.dec-frac-den { font-size: 34px; font-weight: 700; font-family: 'Courier Prime',monospace; color: var(--text); line-height: 1.1; }
+.dec-frac-bar { width: 100%; min-width: 40px; height: 2px; background: var(--gold-dark); border-radius: 2px; margin: 3px 0; }
+.dec-equals { font-size: 30px; color: var(--muted); font-family: 'Courier Prime',monospace; align-self: center; }
+.dec-expansion { display: flex; align-items: center; flex-wrap: wrap; gap: 0; }
+.dec-val { font-size: 18px; font-weight: 700; }
+.dec-hist-box { background: var(--surface); border: 1px solid var(--border-soft); border-radius: 8px; padding: 10px 16px; font-size: 13px; color: var(--muted); margin-top: 10px; direction: ltr; font-style: italic; }
+
+/* ── LANGUAGE ────────────────────────────── */
+[dir="rtl"] .en-text { display: none !important; }
+[dir="ltr"] .ar-text { display: none !important; }
+
+/* ══════════════════════════════════════════
+   HOME PANEL
+══════════════════════════════════════════ */
+.home-hero {
+  text-align: center;
+  padding: 64px 56px 52px;
+  margin-bottom: 36px;
+  background-color: #0E1A12;
+  background-image:
+    linear-gradient(180deg, rgba(14,26,18,0.78) 0%, rgba(14,26,18,0.62) 40%, rgba(14,26,18,0.85) 100%),
+    url('/assets/math-bg.png?v=1');
+  background-size: cover, cover;
+  background-position: center, center 30%;
+  background-blend-mode: normal, normal;
+  border: 1px solid rgba(217,222,213,0.10);
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(8,16,12,0.45), inset 0 0 80px rgba(8,16,12,0.6);
+  position: relative;
+  overflow: hidden;
+}
+.home-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 70% at 50% 50%, transparent 0%, rgba(14,26,18,0.55) 80%),
+    radial-gradient(ellipse 80% 40% at 50% 100%, rgba(8,16,12,0.85) 0%, transparent 70%);
+  pointer-events: none;
+}
+.home-hero::after {
+  content: '';
+  position: absolute; bottom: 0; left: 15%; right: 15%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(217,222,213,0.40), transparent);
+  box-shadow: 0 0 8px rgba(217,222,213,0.35);
+}
+.home-hero-eyebrow {
+  font-size: 12px;
+  letter-spacing: 22px;
+  color: rgba(217,222,213,0.65);
+  font-family: Georgia,serif;
+  margin-bottom: 20px;
+  position: relative;
+  text-shadow: 0 0 14px rgba(217,222,213,0.55), 0 0 28px rgba(180,210,200,0.25);
+}
+.home-hero-headline {
+  font-family: 'Amiri','Traditional Arabic',serif;
+  font-size: 46px;
+  font-weight: 700;
+  color: #F9FBF3;
+  line-height: 1.25;
+  margin-bottom: 20px;
+  position: relative;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 22px rgba(217,222,213,0.40), 0 0 50px rgba(150,200,180,0.20), 0 2px 4px rgba(0,0,0,0.5);
+}
+[dir="ltr"] .home-hero-headline {
+  font-family: 'Lora',Georgia,serif;
+  font-size: 40px;
+  font-style: italic;
+  letter-spacing: 0;
+}
+.home-hero-text {
+  font-size: 15.5px;
+  color: rgba(249,251,243,0.85);
+  font-style: italic;
+  line-height: 2.5;
+  max-width: 640px;
+  margin: 0 auto 28px;
+  position: relative;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.55);
+}
+.home-hero-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(217,222,213,0.18);
+  position: relative;
+}
+.home-hero-stat { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.home-hero-stat-num {
+  font-size: 28px;
+  font-weight: 700;
+  color: #F9FBF3;
+  font-family: 'Courier Prime',monospace;
+  line-height: 1;
+  text-shadow: 0 0 16px rgba(217,222,213,0.60), 0 0 32px rgba(150,200,180,0.30);
+}
+.home-hero-stat-label {
+  font-size: 11px;
+  color: rgba(217,222,213,0.72);
+  letter-spacing: 0.4px;
+  font-family: 'Inter',sans-serif;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.55);
+}
+[dir="rtl"] .home-hero-stat-label { font-family: 'Amiri',serif; font-size: 13px; }
+.home-hero-stat-sep { color: rgba(217,222,213,0.30); font-size: 22px; line-height: 1; }
+
+.home-section-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--frame);
+  margin: 38px 0 16px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Inter','Courier Prime',sans-serif;
+}
+.home-section-title > span:first-child {
+  text-shadow: 0 0 10px rgba(68,94,79,0.30);
+}
+.home-section-title::before { content:''; width: 22px; height: 2.5px; background: var(--frame); flex-shrink: 0; border-radius: 2px; }
+.home-section-title::after  { content:''; flex: 1; height: 1px; background: var(--border); }
+[dir="rtl"] .home-section-title { flex-direction: row-reverse; letter-spacing: 0.5px; font-family: 'Amiri',serif; font-size: 14px; text-transform: none; }
+
+.home-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 13px;
+}
+.home-card {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  padding: 24px 18px 20px;
+  cursor: pointer;
+  transition: box-shadow 0.22s, transform 0.22s, border-color 0.22s;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+.home-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-dark));
+  transform: scaleX(0);
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.home-card:hover { border-color: rgba(90,140,100,0.28); box-shadow: var(--shadow-xl); transform: translateY(-4px); }
+.home-card:hover::after { transform: scaleX(1); }
+.home-card:active { transform: translateY(-2px); }
+.home-card-icon {
+  font-size: 20px;
+  font-family: 'Courier Prime',monospace;
+  color: #F9FBF3;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  background-color: #0E1A12;
+  background-image:
+    radial-gradient(circle at center, rgba(14,26,18,0.55) 0%, rgba(14,26,18,0.78) 75%),
+    url('/assets/circuit-bg.png?v=1');
+  background-size: cover, 140px auto;
+  background-position: center, center;
+  background-repeat: no-repeat, repeat;
+  background-blend-mode: normal, screen;
+  border-radius: 50%;
+  border: 1px solid rgba(217,222,213,0.18);
+  box-shadow: 0 4px 14px rgba(8,16,12,0.45), inset 0 1px 3px rgba(217,222,213,0.10), inset 0 -2px 6px rgba(0,0,0,0.4);
+  text-shadow: 0 0 10px rgba(217,222,213,0.65), 0 0 20px rgba(150,200,180,0.35), 0 1px 2px rgba(0,0,0,0.7);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.home-card:hover .home-card-icon {
+  border-color: rgba(217,222,213,0.32);
+  transform: scale(1.1) rotate(-5deg);
+  box-shadow: 0 6px 20px rgba(8,16,12,0.55), inset 0 1px 3px rgba(217,222,213,0.15), inset 0 -2px 6px rgba(0,0,0,0.4), 0 0 18px rgba(150,200,180,0.25);
+}
+.home-card-name { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 7px; line-height: 1.5; }
+.home-card-scholar { display: inline-block; font-size: 10px; color: var(--gold-dark); font-style: italic; margin-bottom: 10px; background: rgba(68,94,79,0.08); border: 1px solid rgba(68,94,79,0.2); border-radius: 20px; padding: 2px 10px; font-family: 'Courier Prime',monospace; }
+.home-card-desc { font-size: 11.5px; color: var(--muted); font-style: italic; line-height: 1.9; }
+
+/* ── HOME FACTS GRID (dark "spotlight" callouts, distinct from .fact-card) ── */
+.home-facts-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.home-facts-shuffle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #14241A;
+  background-image:
+    linear-gradient(135deg, rgba(20,36,26,0.50) 0%, rgba(14,26,18,0.92) 80%),
+    url('/assets/circuit-bg.png?v=1');
+  background-size: cover, 160px auto;
+  background-blend-mode: normal, screen;
+  color: rgba(249,251,243,0.92);
+  border: 1px solid rgba(217,222,213,0.20);
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-family: 'Courier Prime', monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.18s, box-shadow 0.18s;
+  box-shadow: 0 2px 8px rgba(8,16,12,0.20), inset 0 1px 2px rgba(217,222,213,0.06);
+  text-shadow: 0 0 6px rgba(217,222,213,0.30);
+}
+.home-facts-shuffle:hover {
+  border-color: rgba(217,222,213,0.40);
+  box-shadow: 0 4px 14px rgba(8,16,12,0.30), 0 0 16px rgba(150,200,180,0.15);
+}
+.home-facts-shuffle:active { transform: translateY(1px); }
+.home-facts-shuffle-icon {
+  font-size: 14px;
+  display: inline-block;
+  transition: transform 0.4s ease;
+  text-shadow: 0 0 8px rgba(217,222,213,0.55);
+}
+.home-facts-shuffle:hover .home-facts-shuffle-icon { transform: rotate(180deg); }
+.home-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 16px;
+  margin-bottom: 8px;
+  transition: opacity 0.18s ease;
+}
+.home-facts-grid.home-facts-fading { opacity: 0; }
+.home-fact-card {
+  position: relative;
+  background-color: #14241A;
+  background-image:
+    linear-gradient(155deg, rgba(20,36,26,0.55) 0%, rgba(14,26,18,0.92) 70%),
+    url('/assets/circuit-bg.png?v=1');
+  background-size: cover, 220px auto;
+  background-position: center, center;
+  background-repeat: no-repeat, repeat;
+  background-blend-mode: normal, screen;
+  border: 1px solid rgba(217,222,213,0.14);
+  border-radius: 14px;
+  padding: 26px 24px 22px;
+  box-shadow: 0 4px 16px rgba(8,16,12,0.18), inset 0 1px 2px rgba(217,222,213,0.06);
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+  overflow: hidden;
+  color: #F9FBF3;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+.home-fact-card::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(217,222,213,0.45) 50%, transparent 100%);
+  opacity: 0.6;
+}
+.home-fact-card:hover {
+  border-color: rgba(217,222,213,0.30);
+  box-shadow: 0 8px 24px rgba(8,16,12,0.28), inset 0 1px 2px rgba(217,222,213,0.08), 0 0 22px rgba(150,200,180,0.12);
+  transform: translateY(-3px);
+}
+.home-fact-num {
+  font-family: 'Courier Prime',monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(217,222,213,0.65);
+  letter-spacing: 2px;
+  text-shadow: 0 0 6px rgba(217,222,213,0.35);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(217,222,213,0.14);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.home-fact-num::before {
+  content: '✦';
+  color: rgba(217,222,213,0.85);
+  font-size: 12px;
+  text-shadow: 0 0 8px rgba(217,222,213,0.55);
+}
+.home-fact-title {
+  font-family: 'Amiri', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #FBFCF4;
+  margin-bottom: 10px;
+  line-height: 1.6;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4), 0 0 14px rgba(217,222,213,0.18);
+}
+[dir="ltr"] .home-fact-title { font-family: 'Cormorant Garamond', serif; font-size: 19px; }
+.home-fact-body {
+  font-size: 13px;
+  color: rgba(249,251,243,0.78);
+  line-height: 2.0;
+  font-style: italic;
+  margin-bottom: 16px;
+  flex: 1;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.home-fact-tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 10px;
+  color: rgba(217,222,213,0.85);
+  background: rgba(14,26,18,0.55);
+  border: 1px solid rgba(217,222,213,0.22);
+  border-radius: 20px;
+  padding: 3px 14px;
+  font-family: 'Courier Prime',monospace;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px rgba(217,222,213,0.30);
+}
+
+/* ── PANEL BIO ───────────────────────────── */
+.panel-bio { background: var(--surface); border: 1px solid var(--border-soft); border-right: 3px solid var(--gold); border-radius: 8px; padding: 13px 18px; margin-bottom: 18px; font-size: 13px; color: var(--text2); line-height: 1.9; font-style: italic; box-shadow: var(--shadow-sm); }
+[dir="ltr"] .panel-bio { border-right: 1px solid var(--border-soft); border-left: 3px solid var(--gold); }
+.panel-bio strong { color: var(--gold-dark); font-style: normal; }
+.input-textarea { width: 100%; min-height: 90px; background: var(--bg); border: 1.5px solid var(--border); border-radius: 8px; color: var(--text); font-family: 'Amiri',serif; font-size: 15px; padding: 10px 14px; resize: vertical; direction: rtl; line-height: 2; transition: border-color 0.15s, box-shadow 0.15s; }
+.input-textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(68,94,79,0.12); }
+[dir="ltr"] .input-textarea { direction: ltr; font-family: 'Courier Prime',monospace; font-size: 13px; }
+
+/* ── SCHOLARS INDEX ──────────────────────── */
+.scholars-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 18px; margin-top: 8px; }
+.scholars-century { grid-column: 1 / -1; font-size: 11px; font-weight: 700; color: var(--frame); margin: 18px 0 4px; letter-spacing: 2px; font-family: 'Inter','Courier Prime',sans-serif; text-transform: uppercase; display: flex; align-items: center; gap: 12px; }
+[dir="rtl"] .scholars-century { font-family: 'Amiri',serif; font-size: 14px; letter-spacing: 0.4px; text-transform: none; flex-direction: row-reverse; }
+.scholars-century::before { content: ''; width: 22px; height: 2.5px; background: var(--frame); border-radius: 2px; flex-shrink: 0; }
+.scholars-century::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.scholar-card { background: var(--surface); border: 1px solid var(--border-soft); border-right: 4px solid var(--gold-dark); border-radius: 12px; padding: 18px 22px 20px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 12px; transition: box-shadow 0.18s, transform 0.18s; }
+[dir="ltr"] .scholar-card { border-right: 1px solid var(--border-soft); border-left: 4px solid var(--gold-dark); }
+.scholar-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.scholar-head { padding-bottom: 9px; border-bottom: 1px solid var(--border-soft); }
+.scholar-name-ar { font-family: 'Amiri','Traditional Arabic',serif; font-size: 21px; font-weight: 700; color: var(--text); line-height: 1.35; margin-bottom: 2px; }
+.scholar-name-en { font-family: 'Lora',Georgia,serif; font-size: 14px; font-style: italic; color: var(--gold-dark); margin-bottom: 5px; }
+[dir="ltr"] .scholar-name-en { font-size: 17px; font-style: normal; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+[dir="ltr"] .scholar-name-ar { font-size: 14px; font-weight: 400; color: var(--gold-dark); margin-bottom: 5px; }
+.scholar-meta { font-size: 11px; font-family: 'Courier Prime',monospace; color: var(--muted); letter-spacing: 0.4px; }
+.scholar-bio { font-size: 13.5px; color: var(--text2); line-height: 1.85; font-style: italic; }
+.scholar-section { display: flex; flex-direction: column; gap: 4px; }
+.scholar-section-label { font-size: 10px; color: var(--gold-dark); text-transform: uppercase; letter-spacing: 1.5px; font-family: 'Inter',sans-serif; font-weight: 700; margin-bottom: 1px; }
+[dir="rtl"] .scholar-section-label { font-family: 'Amiri',serif; font-size: 13px; text-transform: none; letter-spacing: 0.3px; }
+.scholar-list { font-size: 12.5px; color: var(--text2); padding-inline-start: 18px; line-height: 1.8; margin: 0; }
+.scholar-list li { margin-bottom: 2px; }
+.scholar-links { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 6px; border-top: 1px dashed var(--border-soft); margin-top: 4px; }
+.scholar-links-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; align-self: center; margin-inline-end: 4px; font-family: 'Inter',sans-serif; }
+[dir="rtl"] .scholar-links-label { font-family: 'Amiri',serif; font-size: 12px; text-transform: none; letter-spacing: 0.3px; }
+.scholar-link { display: inline-block; padding: 3px 11px; font-size: 11.5px; font-family: 'Courier Prime',monospace; color: var(--frame); background: rgba(68,94,79,0.08); border: 1px solid rgba(68,94,79,0.18); border-radius: 999px; cursor: pointer; transition: all 0.15s; text-decoration: none; }
+[dir="rtl"] .scholar-link { font-family: 'Amiri',serif; font-size: 13px; }
+.scholar-link:hover { background: rgba(68,94,79,0.18); border-color: var(--gold-dark); color: var(--text); }
+.scholar-source { font-size: 11px; color: var(--faint); font-style: italic; padding-top: 6px; }
+
+/* ── GLOSSARY ────────────────────────────── */
+.gloss-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 14px; margin-top: 6px; }
+.gloss-section { grid-column: 1 / -1; font-size: 11px; font-weight: 700; color: var(--frame); margin: 18px 0 0; letter-spacing: 1.5px; font-family: 'Inter','Courier Prime',sans-serif; text-transform: uppercase; display: flex; align-items: center; gap: 12px; }
+[dir="rtl"] .gloss-section { font-family: 'Amiri',serif; font-size: 14px; letter-spacing: 0.4px; text-transform: none; flex-direction: row-reverse; }
+.gloss-section::before { content: ''; width: 22px; height: 2.5px; background: var(--frame); border-radius: 2px; flex-shrink: 0; }
+.gloss-section::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.gloss-card { background: var(--surface); border: 1px solid var(--border-soft); border-radius: 10px; padding: 12px 16px 14px; box-shadow: var(--shadow-sm); }
+.gloss-term { font-family: 'Amiri','Traditional Arabic',serif; font-size: 21px; font-weight: 700; color: var(--text); line-height: 1.3; }
+.gloss-translit { font-family: 'Lora',Georgia,serif; font-size: 12.5px; font-style: italic; color: var(--gold-dark); margin-bottom: 4px; }
+.gloss-en { font-size: 12px; font-family: 'Inter','Courier Prime',monospace; color: var(--muted); margin-bottom: 7px; letter-spacing: 0.3px; }
+.gloss-meaning { font-size: 13px; color: var(--text2); line-height: 1.7; }
+[dir="rtl"] .gloss-meaning { font-family: 'Amiri',serif; font-size: 14px; line-height: 1.85; }
+.gloss-meaning strong { color: var(--gold-dark); font-weight: 700; }
+
+/* ── REFERENCES PAGE ─────────────────────── */
+.refs-block { background: var(--surface); border: 1px solid var(--border-soft); border-radius: 12px; padding: 22px 26px; margin-bottom: 18px; box-shadow: var(--shadow-sm); }
+.refs-citation { font-family: 'Amiri','Lora',Georgia,serif; font-size: 15px; line-height: 2; color: var(--text); padding: 14px 18px; background: var(--bg); border-right: 3px solid var(--gold); border-radius: 6px; margin: 8px 0 14px; }
+[dir="ltr"] .refs-citation { border-right: 1px solid var(--border-soft); border-left: 3px solid var(--gold); }
+.refs-section-title { font-size: 11px; font-weight: 700; color: var(--frame); margin: 14px 0 8px; letter-spacing: 2px; font-family: 'Inter','Courier Prime',sans-serif; text-transform: uppercase; }
+[dir="rtl"] .refs-section-title { font-family: 'Amiri',serif; font-size: 14px; letter-spacing: 0.3px; text-transform: none; }
+.refs-chapter-list { list-style: none; padding: 0; margin: 0; }
+.refs-chapter-list li { padding: 8px 14px; border-bottom: 1px dashed var(--border-soft); display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 13.5px; color: var(--text2); }
+.refs-chapter-list li:last-child { border-bottom: none; }
+.refs-chapter-list .ch-title { font-weight: 600; color: var(--text); }
+.refs-chapter-list .ch-pages { font-family: 'Courier Prime',monospace; font-size: 11.5px; color: var(--muted); white-space: nowrap; }
+.refs-howto-cite { font-family: 'Courier Prime',monospace; font-size: 12.5px; background: rgba(68,94,79,0.06); border: 1px dashed rgba(68,94,79,0.25); border-radius: 6px; padding: 10px 14px; color: var(--text2); margin: 6px 0 4px; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ TOP BAR ═══════════════════ -->
+<header class="top-bar">
+  <div class="top-bar-brand">
+    <span class="top-bar-brand-ar">الرياضيات البصرية</span>
+    <span class="top-bar-brand-sep">/</span>
+    <span class="top-bar-brand-en">Visual Mathematics</span>
+  </div>
+  <div class="top-bar-math">∑  √  π  ∞  ∫</div>
+  <div class="top-bar-actions">
+    <button class="btn-lang" onclick="switchLang()" data-i18n="langBtn">English</button>
+  </div>
+</header>
+
+<!-- ═══════════════════ MAIN CONTENT ═══════════════════ -->
+<div class="main">
+
+  <!-- ══ الرئيسية / Home ══ -->
+  <div id="panel-home" class="panel active">
+    <div class="panel-title" data-i18n="homeTitle">الرئيسية</div>
+    <div class="panel-source" data-i18n="homeSource">من إرث علم الحساب العربي الإسلامي</div>
+
+    <div class="home-hero">
+      <div class="home-hero-eyebrow">∑  √  π  ∫  □  ∞</div>
+      <div class="home-hero-headline">
+        <span class="ar-text">الرياضيات البصرية</span>
+        <span class="en-text">Visual Mathematics</span>
+      </div>
+      <div class="home-hero-text" data-i18n="homeHeroText">مرحباً بك في الرياضيات البصرية رحلة تفاعلية في إرث علماء الرياضيات الإسلاميين، من القسمة المطولة عند الكاشي إلى الجبر عند الخوارزمي.</div>
+    </div>
+
+    <!-- ── حقائق مختارة / Selected Facts (random 3, shuffle) ── -->
+    <div class="home-facts-header">
+      <div class="home-section-title" style="margin-bottom:0">
+        <span class="ar-text">✦ حقائق مختارة</span>
+        <span class="en-text">✦ Selected Facts</span>
+      </div>
+      <button type="button" class="home-facts-shuffle" onclick="shuffleHomeFacts()" aria-label="shuffle">
+        <span class="home-facts-shuffle-icon">↻</span>
+        <span class="ar-text">حقائق أخرى</span>
+        <span class="en-text">Shuffle</span>
+      </button>
+    </div>
+    <div id="home-facts-grid" class="home-facts-grid"></div>
+
+    <!-- الحساب / Arithmetic -->
+    <div class="home-section-title">
+      <span class="ar-text">∑ الحساب</span>
+      <span class="en-text">∑ Arithmetic</span>
+    </div>
+    <div class="home-cards">
+      <div class="home-card" onclick="goToTab('division')">
+        <div class="home-card-icon">÷</div>
+        <div class="home-card-name"><span class="ar-text">القسمة المطولة</span><span class="en-text">Long Division</span></div>
+        <div class="home-card-scholar"><span class="ar-text">الكاشي مفتاح الحساب</span><span class="en-text">Al-Kashi Miftāḥ al-Ḥisāb</span></div>
+        <div class="home-card-desc"><span class="ar-text">القسمة خطوة بخطوة كما وصفها الكاشي</span><span class="en-text">Step-by-step long division, Al-Kashi's way</span></div>
+      </div>
+      <div class="home-card" onclick="goToTab('multiply')">
+        <div class="home-card-icon">×</div>
+        <div class="home-card-name"><span class="ar-text">الضرب بالشبكة</span><span class="en-text">Lattice Multiplication</span></div>
+        <div class="home-card-scholar"><span class="ar-text">الكاشي مفتاح الحساب</span><span class="en-text">Al-Kashi Miftāḥ al-Ḥisāb</span></div>
+        <div class="home-card-desc"><span class="ar-text">ضرب الأعداد عبر شبكة مقطّعة بالأقطار</span><span class="en-text">Multiply via a diagonal-split grid</span></div>
+      </div>
+      <div class="home-card" onclick="goToTab('decimal')">
+        <div class="home-card-icon">0.1</div>
+        <div class="home-card-name"><span class="ar-text">الكسور العشرية</span><span class="en-text">Decimal Fractions</span></div>
+        <div class="home-card-scholar"><span class="ar-text">الكاشي 1427م</span><span class="en-text">Al-Kashi 1427 CE</span></div>
+        <div class="home-card-desc"><span class="ar-text">أول استخدام منهجي للكسور العشرية في التاريخ</span><span class="en-text">The first systematic use of decimal fractions</span></div>
+      </div>
+    </div>
+
+    <!-- الجذور / Roots -->
+    <div class="home-section-title">
+      <span class="ar-text">√ الجذور</span>
+      <span class="en-text">√ Roots</span>
+    </div>
+    <div class="home-cards">
+      <div class="home-card" onclick="goToTab('sqrt')">
+        <div class="home-card-icon">√</div>
+        <div class="home-card-name"><span class="ar-text">الجذر التربيعي</span><span class="en-text">Square Root</span></div>
+        <div class="home-card-scholar"><span class="ar-text">الكاشي مفتاح الحساب</span><span class="en-text">Al-Kashi Miftāḥ al-Ḥisāb</span></div>
+        <div class="home-card-desc"><span class="ar-text">استخراج الجذر بتجميع الأرقام أزواجاً</span><span class="en-text">Extract roots by grouping digits in pairs</span></div>
+      </div>
+      <div class="home-card" onclick="goToTab('cbrt')">
+        <div class="home-card-icon">∛</div>
+        <div class="home-card-name"><span class="ar-text">الجذر التكعيبي</span><span class="en-text">Cube Root</span></div>
+        <div class="home-card-scholar"><span class="ar-text">الكاشي أعظم إنجازاته</span><span class="en-text">Al-Kashi His greatest feat</span></div>
+        <div class="home-card-desc"><span class="ar-text">الخوارزمية التي اشتُهر بها الكاشي</span><span class="en-text">The algorithm that made Al-Kashi famous</span></div>
+      </div>
+    </div>
+
+    <!-- التحقق / Verification -->
+    <div class="home-section-title">
+      <span class="ar-text">⊜ التحقق</span>
+      <span class="en-text">⊜ Verification</span>
+    </div>
+    <div class="home-cards">
+      <div class="home-card" onclick="goToTab('mizan')">
+        <div class="home-card-icon">⊜</div>
+        <div class="home-card-name"><span class="ar-text">الميزان</span><span class="en-text">Al-Mizan (The Scale)</span></div>
+        <div class="home-card-scholar"><span class="ar-text">التراث الرياضي الإسلامي</span><span class="en-text">Islamic Mathematical Heritage</span></div>
+        <div class="home-card-desc"><span class="ar-text">التحقق من العمليات الأربع بطرح التسعات</span><span class="en-text">Verify all four operations by casting-out-nines</span></div>
+      </div>
+    </div>
+
+    <!-- الجبر / Algebra -->
+    <div class="home-section-title">
+      <span class="ar-text">∠ الجبر والتقريب</span>
+      <span class="en-text">∠ Algebra &amp; Approximation</span>
+    </div>
+    <div class="home-cards">
+      <div class="home-card" onclick="goToTab('jabr')">
+        <div class="home-card-icon">□</div>
+        <div class="home-card-name"><span class="ar-text">المعادلات التربيعية</span><span class="en-text">Quadratic Equations</span></div>
+        <div class="home-card-scholar"><span class="ar-text">الخوارزمي ~830م</span><span class="en-text">Al-Khwārizmī ~830 CE</span></div>
+        <div class="home-card-desc"><span class="ar-text">حلّها هندسيّاً بإكمال المربع كما فعل الخوارزمي</span><span class="en-text">Solve by geometric completing-the-square, al-Khwārizmī's way</span></div>
+      </div>
+      <div class="home-card" onclick="goToTab('falsepos')">
+        <div class="home-card-icon">≈</div>
+        <div class="home-card-name"><span class="ar-text">حساب الخطأين</span><span class="en-text">Double False Position</span></div>
+        <div class="home-card-scholar"><span class="ar-text">التراث الرياضي الإسلامي</span><span class="en-text">Islamic Mathematical Heritage</span></div>
+        <div class="home-card-desc"><span class="ar-text">حل المعادلات الخطية بتخمينين</span><span class="en-text">Solve linear equations using two guesses</span></div>
+      </div>
+    </div>
+
+    <!-- نظرية الأعداد / Number Theory -->
+    <div class="home-section-title">
+      <span class="ar-text">ℕ نظرية الأعداد</span>
+      <span class="en-text">ℕ Number Theory</span>
+    </div>
+    <div class="home-cards">
+      <div class="home-card" onclick="goToTab('alkindi')">
+        <div class="home-card-icon">⊕</div>
+        <div class="home-card-name"><span class="ar-text">تحليل التواتر الكندي</span><span class="en-text">Frequency Analysis Al-Kindī</span></div>
+        <div class="home-card-scholar"><span class="ar-text">الكندي ~830م</span><span class="en-text">Al-Kindī ~830 CE</span></div>
+        <div class="home-card-desc"><span class="ar-text">أول علم لفك الشفرات في التاريخ</span><span class="en-text">The world's first cryptanalysis method</span></div>
+      </div>
+    </div>
+
+    <!-- الهندسة الكلاسيكية / Classical Geometry -->
+    <div class="home-section-title">
+      <span class="ar-text">∠ الهندسة الكلاسيكية</span>
+      <span class="en-text">∠ Classical Geometry</span>
+    </div>
+    <div class="home-cards">
+      <div class="home-card" onclick="goToTab('pythagoras')">
+        <div class="home-card-icon">△</div>
+        <div class="home-card-name"><span class="ar-text">مبرهنة فيثاغورس</span><span class="en-text">Pythagorean Theorem</span></div>
+        <div class="home-card-scholar"><span class="ar-text">ثابت بن قرة ~880م</span><span class="en-text">Thābit ibn Qurra ~880 CE</span></div>
+        <div class="home-card-desc"><span class="ar-text">البرهان الهندسي بالمثلثات الأربعة</span><span class="en-text">Four-triangle geometric proof of a² + b² = c²</span></div>
+      </div>
+      <div class="home-card" onclick="goToTab('kashi')">
+        <div class="home-card-icon">π</div>
+        <div class="home-card-name"><span class="ar-text">الكاشي وحساب π</span><span class="en-text">Al-Kashi's π</span></div>
+        <div class="home-card-scholar"><span class="ar-text">الكاشي 1424م الرسالة المحيطية</span><span class="en-text">Al-Kashi 1424 CE Risāla al-muḥīṭiyya</span></div>
+        <div class="home-card-desc"><span class="ar-text">π بستة عشر منزلة عشرية بمضاعفة المضلّع 28 مرة</span><span class="en-text">π to 16 decimals by doubling a polygon 28 times</span></div>
+      </div>
+    </div>
+  </div><!-- /panel-home -->
+
+  <!-- ══ العلماء / Scholars Index ══ -->
+  <div id="panel-scholars" class="panel">
+    <div class="panel-title" data-i18n="schTitle">علماء الرياضيات في الحضارة الإسلامية</div>
+    <div class="panel-source" data-i18n="schSource">دليل مرجعي للعلماء الذين تُمثّل طُرُقهم في هذا الموقع، مرتّباً زمنيّاً</div>
+    <div class="panel-bio">
+      <span class="ar-text">يعرض هذا الدليل أبرز رياضيّي الحضارة الإسلامية الذين تُحاكي صفحات الموقع طُرُقهم. كلّ بطاقة تذكر التواريخ والموقع وأبرز الأعمال والإسهامات، مع روابط مباشرة إلى الصفحات التي تشرح كلّ طريقة.</span>
+      <span class="en-text">This index lists the principal mathematicians of the Islamic civilisation whose methods are demonstrated on this site. Each card gives dates, place of work, key works and contributions, with direct links to the pages that walk through their methods.</span>
+    </div>
+
+    <div class="scholars-grid">
+
+      <!-- ─── 8th century ─── -->
+      <div class="scholars-century"><span class="ar-text">القرن الثامن الميلادي</span><span class="en-text">8th century CE</span></div>
+
+      <!-- al-Khalīl ibn Aḥmad -->
+      <div class="scholar-card">
+        <div class="scholar-head">
+          <div class="scholar-name-ar">الخليل بن أحمد الفراهيدي</div>
+          <div class="scholar-name-en">al-Khalīl ibn Aḥmad al-Farāhīdī</div>
+          <div class="scholar-meta"><span class="ar-text">718–791م · البصرة</span><span class="en-text">718–791 CE · Basra</span></div>
+        </div>
+        <div class="scholar-bio">
+          <span class="ar-text">مؤسّس علم العَروض ومن أوائل من طبّق علم التوافيق على مسائل لغوية. وضع كذلك أوّل معجم عربي شامل (كتاب العين).</span>
+          <span class="en-text">Founder of the science of Arabic prosody and one of the first to apply combinatorics to a linguistic problem. Compiled the first comprehensive Arabic dictionary (Kitāb al-ʿAyn).</span>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الأعمال</span><span class="en-text">Key works</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">كتاب العَروض</span><span class="en-text">Kitāb al-ʿArūḍ (on prosody)</span></li>
+            <li><span class="ar-text">كتاب العين</span><span class="en-text">Kitāb al-ʿAyn (lexicon)</span></li>
+          </ul>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الإسهامات</span><span class="en-text">Key contributions</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">أوّل تطبيق منهجي لعلم التوافيق والتباديل في التاريخ</span><span class="en-text">First systematic application of combinatorics and permutations in history</span></li>
+            <li><span class="ar-text">تصنيف الأوزان الشعرية بمنهج تركيبي</span><span class="en-text">Combinatorial classification of Arabic poetic metres</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ─── 9th century ─── -->
+      <div class="scholars-century"><span class="ar-text">القرن التاسع الميلادي</span><span class="en-text">9th century CE</span></div>
+
+      <!-- al-Khwārizmī -->
+      <div class="scholar-card">
+        <div class="scholar-head">
+          <div class="scholar-name-ar">أبو عبد الله محمد بن موسى الخوارزمي</div>
+          <div class="scholar-name-en">Muḥammad ibn Mūsā al-Khwārizmī</div>
+          <div class="scholar-meta"><span class="ar-text">~780–850م · بغداد (بيت الحكمة)</span><span class="en-text">~780–850 CE · Baghdad (House of Wisdom)</span></div>
+        </div>
+        <div class="scholar-bio">
+          <span class="ar-text">من أعظم رياضيّي العصر العباسي، عمل في بيت الحكمة بأمر الخليفة المأمون. كلمة "Algebra" مأخوذة من عنوان كتابه، وكلمة "Algorithm" تحريف لاتيني لاسمه.</span>
+          <span class="en-text">One of the greatest mathematicians of the Abbasid era, working in the House of Wisdom under Caliph al-Maʾmūn. The word "algebra" comes from the title of his book, and "algorithm" is a Latinisation of his name.</span>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الأعمال</span><span class="en-text">Key works</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">كتاب المختصر في حساب الجبر والمقابلة (~830م)</span><span class="en-text">Kitāb al-mukhtasar fī ḥisāb al-jabr wa-l-muqābala (~830)</span></li>
+            <li><span class="ar-text">كتاب الجمع والتفريق بالحساب الهندي</span><span class="en-text">Algoritmi de numero Indorum (Hindu numerals)</span></li>
+          </ul>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الإسهامات</span><span class="en-text">Key contributions</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">صنّف المعادلات التربيعية في ست حالات قانونية</span><span class="en-text">Classified quadratic equations into six canonical forms</span></li>
+            <li><span class="ar-text">برهن هندسيّاً على حلول الحالات الثلاثية الحدود</span><span class="en-text">Geometric proofs for the three trinomial cases</span></li>
+            <li><span class="ar-text">أدخل النظام العشري الهندي إلى العالم العربي</span><span class="en-text">Introduced Hindu decimal numerals to the Arabic world</span></li>
+          </ul>
+        </div>
+        <div class="scholar-links">
+          <span class="scholar-links-label"><span class="ar-text">طُرُقه على الموقع:</span><span class="en-text">Methods on this site:</span></span>
+          <a class="scholar-link" onclick="goToTab('jabr')"><span class="ar-text">المعادلات التربيعية</span><span class="en-text">Quadratic Equations</span></a>
+        </div>
+      </div>
+
+      <!-- al-Kindī -->
+      <div class="scholar-card">
+        <div class="scholar-head">
+          <div class="scholar-name-ar">أبو يوسف يعقوب بن إسحاق الكندي</div>
+          <div class="scholar-name-en">Yaʿqūb ibn Isḥāq al-Kindī</div>
+          <div class="scholar-meta"><span class="ar-text">~801–873م · الكوفة/بغداد · "فيلسوف العرب"</span><span class="en-text">~801–873 CE · Kufa/Baghdad · "Philosopher of the Arabs"</span></div>
+        </div>
+        <div class="scholar-bio">
+          <span class="ar-text">عالم موسوعي في الفلسفة والرياضيات والطبّ والموسيقى. أوّل من وضع علم تحليل الشفرات في رسالة منهجية مكتوبة.</span>
+          <span class="en-text">Polymath in philosophy, mathematics, medicine and music. The first to set out cryptanalysis as a systematic written discipline.</span>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الأعمال</span><span class="en-text">Key works</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">رسالة في استخراج المعمّى</span><span class="en-text">Risāla fī Istikhrāj al-Muʿammā (Decoding Encrypted Messages)</span></li>
+          </ul>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الإسهامات</span><span class="en-text">Key contributions</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">اخترع تحليل التكرار لفك الشفرات (يسبق أوروبا بنحو خمسة قرون)</span><span class="en-text">Invented frequency analysis for codebreaking (~500 years before Europe)</span></li>
+          </ul>
+        </div>
+        <div class="scholar-links">
+          <span class="scholar-links-label"><span class="ar-text">طُرُقه على الموقع:</span><span class="en-text">Methods on this site:</span></span>
+          <a class="scholar-link" onclick="goToTab('alkindi')"><span class="ar-text">تحليل تواتر الكندي</span><span class="en-text">Al-Kindī Frequency Analysis</span></a>
+        </div>
+      </div>
+
+      <!-- Thābit ibn Qurra -->
+      <div class="scholar-card">
+        <div class="scholar-head">
+          <div class="scholar-name-ar">أبو الحسن ثابت بن قرة الحرّاني</div>
+          <div class="scholar-name-en">Thābit ibn Qurra al-Ḥarrānī</div>
+          <div class="scholar-meta"><span class="ar-text">826–901م · حران/بغداد</span><span class="en-text">826–901 CE · Harran/Baghdad</span></div>
+        </div>
+        <div class="scholar-bio">
+          <span class="ar-text">ترجم وعدّل الأعمال اليونانية الكلاسيكية إلى العربية وأضاف إليها إسهاماته الأصيلة في الهندسة ونظرية الأعداد.</span>
+          <span class="en-text">Translated and refined classical Greek works into Arabic, and added original contributions in geometry and number theory.</span>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الأعمال</span><span class="en-text">Key works</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">ترجمات لأوقليدس وأرخميدس وأبولونيوس</span><span class="en-text">Translations of Euclid, Archimedes, Apollonius</span></li>
+            <li><span class="ar-text">رسائل أصلية في الأعداد المتحابّة وفي القطع المخروطية</span><span class="en-text">Original treatises on amicable numbers and conic sections</span></li>
+          </ul>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الإسهامات</span><span class="en-text">Key contributions</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">برهان هندسي عام لمبرهنة فيثاغورس وتعميم لها على المثلثات غير القائمة</span><span class="en-text">General geometric proof of the Pythagorean theorem and its generalisation</span></li>
+            <li><span class="ar-text">قاعدة توليد الأعداد المتحابّة (الزوج 220 و284 ومثيلاتها)</span><span class="en-text">Rule for generating amicable number pairs (220, 284, and beyond)</span></li>
+          </ul>
+        </div>
+        <div class="scholar-links">
+          <span class="scholar-links-label"><span class="ar-text">طُرُقه على الموقع:</span><span class="en-text">Methods on this site:</span></span>
+          <a class="scholar-link" onclick="goToTab('pythagoras')"><span class="ar-text">مبرهنة فيثاغورس</span><span class="en-text">Pythagorean Theorem</span></a>
+        </div>
+      </div>
+
+      <!-- abū Kāmil ibn Aslam -->
+      <div class="scholar-card">
+        <div class="scholar-head">
+          <div class="scholar-name-ar">أبو كامل شجاع بن أسلم</div>
+          <div class="scholar-name-en">Abū Kāmil Shujāʿ ibn Aslam</div>
+          <div class="scholar-meta"><span class="ar-text">~850–930م · مصر</span><span class="en-text">~850–930 CE · Egypt</span></div>
+        </div>
+        <div class="scholar-bio">
+          <span class="ar-text">من خلفاء الخوارزمي في علم الجبر، نقل الجبر العربي خطوة كبيرة نحو التجريد، وأثّر مباشرةً في فيبوناتشي وفي الجبر الأوروبي اللاحق.</span>
+          <span class="en-text">A direct successor of al-Khwārizmī in algebra, who pushed Arabic algebra further towards abstraction and directly influenced Fibonacci and later European algebra.</span>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الأعمال</span><span class="en-text">Key works</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">كتاب الجبر والمقابلة</span><span class="en-text">Kitāb al-Jabr wa-l-Muqābala</span></li>
+            <li><span class="ar-text">كتاب الكامل في الجبر، كتاب الطير</span><span class="en-text">al-Kāmil fī al-Jabr; Kitāb al-Ṭayr (the bird problem)</span></li>
+          </ul>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الإسهامات</span><span class="en-text">Key contributions</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">توسعة معالجة المعادلات التربيعية وحلولها متعدّدة المتغيّرات</span><span class="en-text">Extended quadratic solutions to systems with multiple unknowns</span></li>
+            <li><span class="ar-text">مسائل تطبيقية على الميراث والقياس</span><span class="en-text">Applied problems in inheritance and mensuration</span></li>
+            <li><span class="ar-text">مهّد لجبر الكرَجي والسموأل، وأثّر مباشرة في كتاب فيبوناتشي (Liber Abaci)</span><span class="en-text">Paved the way for al-Karajī and al-Samawʾal; directly influenced Fibonacci's Liber Abaci</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ─── 10th century ─── -->
+      <div class="scholars-century"><span class="ar-text">القرن العاشر الميلادي</span><span class="en-text">10th century CE</span></div>
+
+      <!-- al-Uqlīdisī -->
+      <div class="scholar-card">
+        <div class="scholar-head">
+          <div class="scholar-name-ar">أبو الحسن أحمد بن إبراهيم الإقليدسي</div>
+          <div class="scholar-name-en">Abū al-Ḥasan al-Uqlīdisī</div>
+          <div class="scholar-meta"><span class="ar-text">~920–980م · دمشق</span><span class="en-text">~920–980 CE · Damascus</span></div>
+        </div>
+        <div class="scholar-bio">
+          <span class="ar-text">من أوائل من استعمل الكسور العشرية كأداة حسابية منهجيّة، قبل صياغتها النظرية بنحو قرنين.</span>
+          <span class="en-text">Among the first to use decimal fractions as a systematic computational tool — about two centuries before they received a theoretical foundation.</span>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الأعمال</span><span class="en-text">Key works</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">الفصول في الحساب الهندي (~952م)</span><span class="en-text">al-Fuṣūl fī al-Ḥisāb al-Hindī (~952 CE)</span></li>
+          </ul>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الإسهامات</span><span class="en-text">Key contributions</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">أوّل استعمال منهجي للكسر العشري في تاريخ الحساب</span><span class="en-text">First systematic use of decimal fractions in arithmetic</span></li>
+            <li><span class="ar-text">استعمل علامة (') للفصل بين الجزء الصحيح والجزء العشري</span><span class="en-text">Used a tick mark (') to separate integer from decimal part</span></li>
+          </ul>
+        </div>
+        <div class="scholar-links">
+          <span class="scholar-links-label"><span class="ar-text">طُرُقه على الموقع:</span><span class="en-text">Methods on this site:</span></span>
+          <a class="scholar-link" onclick="goToTab('decimal')"><span class="ar-text">الكسور العشرية</span><span class="en-text">Decimal Fractions</span></a>
+        </div>
+      </div>
+
+      <!-- al-Khujandī -->
+      <div class="scholar-card">
+        <div class="scholar-head">
+          <div class="scholar-name-ar">أبو محمود حامد بن الخضر الخجندي</div>
+          <div class="scholar-name-en">Abū Maḥmūd al-Khujandī</div>
+          <div class="scholar-meta"><span class="ar-text">~940–1000م · خُجَند/الرَيّ</span><span class="en-text">~940–1000 CE · Khujand/Rey</span></div>
+        </div>
+        <div class="scholar-bio">
+          <span class="ar-text">فلكي ومهندس، اشتُهر بصناعة "السدس الفخري" في الرَيّ، أكبر آلة فلكية في عصره. درس مسألة تربيع الدائرة وأبدع في الهندسة.</span>
+          <span class="en-text">Astronomer and geometer, famous for building the "Fakhrī sextant" at Rey — the largest astronomical instrument of his era. Studied squaring the circle and made original contributions to geometry.</span>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الأعمال</span><span class="en-text">Key works</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">رسائل فلكية وفي تربيع الدائرة وتثليث الزاوية</span><span class="en-text">Treatises on astronomy, squaring the circle, and angle trisection</span></li>
+          </ul>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الإسهامات</span><span class="en-text">Key contributions</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">"السدس الفخري" أوّل وأكبر سدس فلكي في التاريخ، لقياس ميل دائرة البروج</span><span class="en-text">The Fakhrī sextant — first and largest such instrument, used to measure the obliquity of the ecliptic</span></li>
+            <li><span class="ar-text">محاولة مبكّرة لإثبات حالة فيرما n=3 (مجموع مكعبَين لا يكون مكعباً)</span><span class="en-text">Early attempt at the n = 3 case of Fermat's last theorem</span></li>
+            <li><span class="ar-text">رسائل في تربيع الدائرة وتثليث الزاوية بالمخروطيات</span><span class="en-text">Treatises on squaring the circle and on trisecting angles by conic sections</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ─── 11th century ─── -->
+      <div class="scholars-century"><span class="ar-text">القرن الحادي عشر الميلادي</span><span class="en-text">11th century CE</span></div>
+
+      <!-- al-Karajī -->
+      <div class="scholar-card">
+        <div class="scholar-head">
+          <div class="scholar-name-ar">أبو بكر محمد بن الحسن الكَرَجي</div>
+          <div class="scholar-name-en">Abū Bakr al-Karajī</div>
+          <div class="scholar-meta"><span class="ar-text">~953–1029م · الكَرَج/بغداد</span><span class="en-text">~953–1029 CE · al-Karaj/Baghdad</span></div>
+        </div>
+        <div class="scholar-bio">
+          <span class="ar-text">طوّر الجبر إلى علم تجريدي مستقلّ عن الهندسة، ووضع أُسس الحساب على المتعدّدات.</span>
+          <span class="en-text">Developed algebra into a discipline abstracted from geometry, and laid the foundations for polynomial arithmetic.</span>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الأعمال</span><span class="en-text">Key works</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">الفخري في الجبر، الكافي في الحساب، البديع في الحساب</span><span class="en-text">al-Fakhrī, al-Kāfī, al-Badīʿ — algebra and arithmetic treatises</span></li>
+          </ul>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الإسهامات</span><span class="en-text">Key contributions</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">جبر كامل للمتعدّدات: ضرب وقسمة وقواعد للأسس</span><span class="en-text">Complete polynomial algebra: multiplication, division, exponent rules</span></li>
+            <li><span class="ar-text">صياغة مبكّرة للاستقراء الرياضي</span><span class="en-text">Early form of mathematical induction</span></li>
+            <li><span class="ar-text">معاملات ذات الحدّين (مثلث "باسكال" قبل باسكال بسبعة قرون)</span><span class="en-text">Binomial coefficients (Pascal's triangle ~7 centuries before Pascal)</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ibn al-Haytham -->
+      <div class="scholar-card">
+        <div class="scholar-head">
+          <div class="scholar-name-ar">أبو علي الحسن بن الهيثم</div>
+          <div class="scholar-name-en">Ibn al-Haytham (Alhazen)</div>
+          <div class="scholar-meta"><span class="ar-text">965–1040م · البصرة/القاهرة</span><span class="en-text">965–1040 CE · Basra/Cairo</span></div>
+        </div>
+        <div class="scholar-bio">
+          <span class="ar-text">عالم موسوعي عُرف في الغرب باسم Alhazen. أبدع في البصريات والفيزياء والهندسة، ووضع أوّل صياغة منهجية للمنهج العلمي التجريبي.</span>
+          <span class="en-text">Polymath known in the West as Alhazen. Founded experimental optics, made deep contributions to physics and geometry, and produced the first systematic statement of the experimental scientific method.</span>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الأعمال</span><span class="en-text">Key works</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">كتاب المناظر، رسالة في تربيع الدائرة، حلّ شكوك أوقليدس</span><span class="en-text">Book of Optics; On the Quadrature of the Circle; Doubts on Euclid</span></li>
+          </ul>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الإسهامات</span><span class="en-text">Key contributions</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">صيَغ مغلقة لمجموع متواليات قوى الأعداد (س، س²، س³، س⁴)</span><span class="en-text">Closed-form sums of integer powers (∑k, ∑k², ∑k³, ∑k⁴)</span></li>
+            <li><span class="ar-text">مبرهنة ويلسون (في نظرية الأعداد) قبل ويلسون بسبعة قرون</span><span class="en-text">Wilson's theorem in number theory, ~7 centuries before Wilson</span></li>
+            <li><span class="ar-text">طريقة محكمة لاستخراج الجذر التربيعي</span><span class="en-text">A precise method for square-root extraction</span></li>
+          </ul>
+        </div>
+        <div class="scholar-links">
+          <span class="scholar-links-label"><span class="ar-text">طُرُقه على الموقع:</span><span class="en-text">Methods on this site:</span></span>
+          <a class="scholar-link" onclick="goToTab('sqrt')"><span class="ar-text">الجذر التربيعي</span><span class="en-text">Square Root</span></a>
+        </div>
+      </div>
+
+      <!-- al-Bīrūnī -->
+      <div class="scholar-card">
+        <div class="scholar-head">
+          <div class="scholar-name-ar">أبو الريحان محمد بن أحمد البيروني</div>
+          <div class="scholar-name-en">Abū al-Rayḥān al-Bīrūnī</div>
+          <div class="scholar-meta"><span class="ar-text">973–1048م · خوارزم/غزنة</span><span class="en-text">973–1048 CE · Khwārazm/Ghazna</span></div>
+        </div>
+        <div class="scholar-bio">
+          <span class="ar-text">عالم موسوعي اشتُهر بدقّته العلمية وحياده. حسب محيط الأرض بطريقة جديدة بدقّة تفوق 1٪، ووضع جداول مثلثية بدقّة عالية، وكتب في الفلك والجغرافيا والصيدلة والتاريخ.</span>
+          <span class="en-text">Polymath known for unusual scientific rigour. Computed the Earth's circumference by a new method to within ~1%, produced highly accurate trigonometric tables, and wrote on astronomy, geography, pharmacology and history.</span>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الأعمال</span><span class="en-text">Key works</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">القانون المسعودي، تحديد نهايات الأماكن</span><span class="en-text">al-Qānūn al-Masʿūdī; Taḥdīd Nihāyāt al-Amākin (geodesy)</span></li>
+            <li><span class="ar-text">الآثار الباقية، الجماهر في معرفة الجواهر</span><span class="en-text">al-Āthār al-Bāqiya (chronology); al-Jamāhir (mineralogy)</span></li>
+          </ul>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الإسهامات</span><span class="en-text">Key contributions</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">قياس محيط الأرض بطريقة الزاوية المرئية للأفق (دقّة ضمن 1٪)</span><span class="en-text">Measured Earth's circumference via the dip-of-horizon method (to within ~1%)</span></li>
+            <li><span class="ar-text">جداول الجيب والظلّ بدقّة عالية</span><span class="en-text">Highly accurate sine and tangent tables</span></li>
+            <li><span class="ar-text">منهجية تجريبية مقارنة في الفلك والجغرافيا والمعادن</span><span class="en-text">Comparative experimental methodology across astronomy, geography, and mineralogy</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Omar Khayyām -->
+      <div class="scholar-card">
+        <div class="scholar-head">
+          <div class="scholar-name-ar">عمر بن إبراهيم الخيّام</div>
+          <div class="scholar-name-en">Omar Khayyām</div>
+          <div class="scholar-meta"><span class="ar-text">1048–1131م · نيسابور/إصفهان</span><span class="en-text">1048–1131 CE · Nishapur/Isfahan</span></div>
+        </div>
+        <div class="scholar-bio">
+          <span class="ar-text">رياضي وفلكي وفيلسوف وشاعر. عمل في مرصد إصفهان، ووضع التقويم الجلالي الذي يفوق التقويم الغريغوري دقّة.</span>
+          <span class="en-text">Mathematician, astronomer, philosopher, and poet. Worked at the Isfahan observatory and produced the Jalālī calendar — more accurate than the later Gregorian.</span>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الأعمال</span><span class="en-text">Key works</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">مقالة في الجبر والمقابلة</span><span class="en-text">Maqāla fī al-Jabr wa-l-Muqābala (treatise on algebra)</span></li>
+            <li><span class="ar-text">رسالة في شرح ما أشكل من مصادرات أوقليدس</span><span class="en-text">On the difficulties in Euclid's postulates</span></li>
+          </ul>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الإسهامات</span><span class="en-text">Key contributions</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">حلّ هندسي عام للمعادلات التكعيبية بتقاطع المخروطيات</span><span class="en-text">General geometric solution of cubic equations via conic intersections</span></li>
+            <li><span class="ar-text">التقويم الجلالي (دقّة تفوق التقويم الغريغوري)</span><span class="en-text">The Jalālī calendar (greater accuracy than the Gregorian)</span></li>
+            <li><span class="ar-text">نقد منطق المتوازيات عند أوقليدس</span><span class="en-text">Critique of Euclid's parallel postulate</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ─── 12th century ─── -->
+      <div class="scholars-century"><span class="ar-text">القرن الثاني عشر الميلادي</span><span class="en-text">12th century CE</span></div>
+
+      <!-- al-Samawʾal -->
+      <div class="scholar-card">
+        <div class="scholar-head">
+          <div class="scholar-name-ar">السموأل بن يحيى المغربي</div>
+          <div class="scholar-name-en">al-Samawʾal al-Maghribī</div>
+          <div class="scholar-meta"><span class="ar-text">~1130–1180م · بغداد/مراغة</span><span class="en-text">~1130–1180 CE · Baghdad/Maragha</span></div>
+        </div>
+        <div class="scholar-bio">
+          <span class="ar-text">رياضي يهودي اعتنق الإسلام لاحقاً. أكمل الإطار النظري للجبر الذي بدأه الكرَجي ووضع أوّل تأسيس نظري للكسور العشرية.</span>
+          <span class="en-text">A Jewish mathematician who later embraced Islam. Completed the theoretical framework of algebra begun by al-Karajī and gave decimals their first proper theoretical grounding.</span>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الأعمال</span><span class="en-text">Key works</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">الباهر في الجبر، التبصرة في علم الحساب</span><span class="en-text">al-Bāhir fī al-Jabr; al-Tabṣira fī ʿIlm al-Ḥisāb</span></li>
+          </ul>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الإسهامات</span><span class="en-text">Key contributions</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">التعريف الجبري الكامل للأسس (س⁰، س⁻ⁿ)</span><span class="en-text">Complete algebraic definition of exponents (x⁰, x⁻ⁿ)</span></li>
+            <li><span class="ar-text">قسمة المتعدّدات على بعضها (long polynomial division)</span><span class="en-text">Polynomial long division</span></li>
+            <li><span class="ar-text">التأسيس النظري للكسور العشرية</span><span class="en-text">Theoretical foundation for decimal fractions</span></li>
+          </ul>
+        </div>
+        <div class="scholar-links">
+          <span class="scholar-links-label"><span class="ar-text">طُرُقه على الموقع:</span><span class="en-text">Methods on this site:</span></span>
+          <a class="scholar-link" onclick="goToTab('decimal')"><span class="ar-text">الكسور العشرية</span><span class="en-text">Decimal Fractions</span></a>
+        </div>
+      </div>
+
+      <!-- Sharaf al-Dīn al-Ṭūsī -->
+      <div class="scholar-card">
+        <div class="scholar-head">
+          <div class="scholar-name-ar">شرف الدين المظفّر بن محمد الطوسي</div>
+          <div class="scholar-name-en">Sharaf al-Dīn al-Ṭūsī</div>
+          <div class="scholar-meta"><span class="ar-text">~1135–1213م · طوس</span><span class="en-text">~1135–1213 CE · Ṭūs</span></div>
+        </div>
+        <div class="scholar-bio">
+          <span class="ar-text">رياضي مغاير لنصير الدين الطوسي (سبقه بنحو نصف قرن). تخصّص في الجبر، وأهمّ إنجازاته دراسة المعادلات التكعيبية بمنهج تحليلي يسبق نهج العصر الحديث.</span>
+          <span class="en-text">A mathematician distinct from Naṣīr al-Dīn al-Ṭūsī (some half-century his junior). Specialised in algebra; his most important achievement is the analytic study of cubic equations, anticipating the modern approach.</span>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الأعمال</span><span class="en-text">Key works</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">المعادلات (في تحليل المعادلات التكعيبية)</span><span class="en-text">al-Muʿādalāt — on the analysis of cubic equations</span></li>
+          </ul>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الإسهامات</span><span class="en-text">Key contributions</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">تصنيف المعادلات التكعيبية وفق وجود حلولها الحقيقية وعددها</span><span class="en-text">Classified cubic equations by the existence and number of their real roots</span></li>
+            <li><span class="ar-text">استعمال أوّل لمفاهيم تشبه المشتقّة لتحديد القيم القصوى</span><span class="en-text">Early use of derivative-like ideas to locate maxima of polynomials</span></li>
+            <li><span class="ar-text">نهج تحليلي على المعادلات يسبق الجبر الأوروبي بقرون</span><span class="en-text">An analytic approach to equations centuries ahead of European algebra</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ─── 13th century ─── -->
+      <div class="scholars-century"><span class="ar-text">القرن الثالث عشر الميلادي</span><span class="en-text">13th century CE</span></div>
+
+      <!-- al-Ṭūsī -->
+      <div class="scholar-card">
+        <div class="scholar-head">
+          <div class="scholar-name-ar">نصير الدين الطوسي</div>
+          <div class="scholar-name-en">Naṣīr al-Dīn al-Ṭūsī</div>
+          <div class="scholar-meta"><span class="ar-text">1201–1274م · طُوس/مراغة</span><span class="en-text">1201–1274 CE · Ṭūs/Maragha</span></div>
+        </div>
+        <div class="scholar-bio">
+          <span class="ar-text">فلكي ورياضي، أسّس مرصد مراغة الذي صار مركز الفلك الأكبر في العالم خلال قرنه. مؤلّف الزيج الإلخاني.</span>
+          <span class="en-text">Astronomer-mathematician who founded the Maragha observatory, the leading centre of astronomy in his century. Author of the Īlkhānī tables.</span>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الأعمال</span><span class="en-text">Key works</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">تحرير المجسطي، رسالة الشكل القطّاع، تذكرة في علم الهيئة</span><span class="en-text">Taḥrīr al-Majisṭī; Treatise on the Quadrilateral; Tadhkira on Astronomy</span></li>
+          </ul>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الإسهامات</span><span class="en-text">Key contributions</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">أوّل رسالة مستقلّة في علم المثلثات (فصلها عن الفلك)</span><span class="en-text">First treatise on trigonometry as a discipline distinct from astronomy</span></li>
+            <li><span class="ar-text">"ثُنائيّ الطوسي" تحويل حركة دائرية إلى حركة خطّية مستقيمة</span><span class="en-text">The "Ṭūsī couple" — converting circular into linear motion</span></li>
+            <li><span class="ar-text">نموذج فلكي أثّر لاحقاً في كوبرنيكوس</span><span class="en-text">Astronomical models that later influenced Copernicus</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ─── 15th century ─── -->
+      <div class="scholars-century"><span class="ar-text">القرن الخامس عشر الميلادي</span><span class="en-text">15th century CE</span></div>
+
+      <!-- al-Kāshī -->
+      <div class="scholar-card">
+        <div class="scholar-head">
+          <div class="scholar-name-ar">غياث الدين جمشيد بن مسعود الكاشي</div>
+          <div class="scholar-name-en">Ghiyāth al-Dīn Jamshīd al-Kāshī</div>
+          <div class="scholar-meta"><span class="ar-text">~1380–1429م · كاشان/سمرقند</span><span class="en-text">~1380–1429 CE · Kashan/Samarkand</span></div>
+        </div>
+        <div class="scholar-bio">
+          <span class="ar-text">من أعظم رياضيّي الإسلام. عمل في مرصد سمرقند بأمر السلطان أُلوغ بك، وكتب «مفتاح الحساب»، أعظم موسوعة حسابية في عصره.</span>
+          <span class="en-text">One of the greatest Islamic mathematicians. Worked at Ulugh Beg's Samarkand observatory and wrote Miftāḥ al-Ḥisāb, the most comprehensive arithmetic encyclopaedia of his era.</span>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الأعمال</span><span class="en-text">Key works</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">مفتاح الحساب (1427م)</span><span class="en-text">Miftāḥ al-Ḥisāb (1427 CE)</span></li>
+            <li><span class="ar-text">الرسالة المحيطية، رسالة الجيب</span><span class="en-text">al-Risāla al-Muḥīṭiyya (on π); Risālat al-Jayb (on sine)</span></li>
+          </ul>
+        </div>
+        <div class="scholar-section">
+          <div class="scholar-section-label"><span class="ar-text">أبرز الإسهامات</span><span class="en-text">Key contributions</span></div>
+          <ul class="scholar-list">
+            <li><span class="ar-text">حسب π بستّ عشرة منزلة عشرية صحيحة (1424م)</span><span class="en-text">Computed π to 16 correct decimal places (1424 CE)</span></li>
+            <li><span class="ar-text">صاغ الكسور العشرية في صورتها الحديثة</span><span class="en-text">Standardised decimal fractions in their modern form</span></li>
+            <li><span class="ar-text">خوارزمية تكرارية لحساب جيب الزاوية 1° (سَبَقت طريقة نيوتن)</span><span class="en-text">Iterative algorithm for sin 1° (a precursor of Newton's method)</span></li>
+            <li><span class="ar-text">خوارزميات الجذرين التربيعي والتكعيبي والقسمة المطوّلة</span><span class="en-text">Algorithms for square root, cube root, and long division</span></li>
+          </ul>
+        </div>
+        <div class="scholar-links">
+          <span class="scholar-links-label"><span class="ar-text">طُرُقه على الموقع:</span><span class="en-text">Methods on this site:</span></span>
+          <a class="scholar-link" onclick="goToTab('division')"><span class="ar-text">القسمة المطوّلة</span><span class="en-text">Long Division</span></a>
+          <a class="scholar-link" onclick="goToTab('multiply')"><span class="ar-text">الضرب بالشبكة</span><span class="en-text">Lattice Multiply</span></a>
+          <a class="scholar-link" onclick="goToTab('sqrt')"><span class="ar-text">الجذر التربيعي</span><span class="en-text">Square Root</span></a>
+          <a class="scholar-link" onclick="goToTab('cbrt')"><span class="ar-text">الجذر التكعيبي</span><span class="en-text">Cube Root</span></a>
+          <a class="scholar-link" onclick="goToTab('decimal')"><span class="ar-text">الكسور العشرية</span><span class="en-text">Decimal Fractions</span></a>
+        </div>
+      </div>
+
+    </div><!-- /scholars-grid -->
+
+    <div class="scholar-source"><span class="ar-text">المصدر: الفريدان، منذر بن راشد، <em>مقتطفات من رياضيات الحضارة الإسلامية</em>.</span><span class="en-text">Source: Alfuraidan, Monther Rashed, <em>Muqtaṭafāt min Riyāḍiyyāt al-Ḥaḍāra al-Islāmiyya</em>.</span></div>
+  </div><!-- /panel-scholars -->
+
+  <!-- ══ المسرد / Glossary ══ -->
+  <div id="panel-glossary" class="panel">
+    <div class="panel-title" data-i18n="glossTitle">مسرد المصطلحات</div>
+    <div class="panel-source" data-i18n="glossSource">المصطلحات العربية الكلاسيكية في الرياضيات وما يقابلها في اللغة الحديثة</div>
+    <div class="panel-bio">
+      <span class="ar-text">يعرض هذا المسرد المصطلحات الرياضية العربية كما وردت في النصوص الكلاسيكية، مع ما يقابلها في اللغة الإنجليزية والاصطلاح الحديث. كثير من هذه المصطلحات لا يزال أثره حاضراً في الرياضيات اليوم.</span>
+      <span class="en-text">This glossary lists the Arabic mathematical terms as they appear in the classical texts, alongside their English equivalents and modern symbolic notation. Many of these terms still echo in modern mathematics.</span>
+    </div>
+
+    <div class="gloss-grid">
+
+      <!-- ─── Algebra ─── -->
+      <div class="gloss-section"><span class="ar-text">مصطلحات الجبر</span><span class="en-text">Algebra</span></div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">جبر</div>
+        <div class="gloss-translit">jabr</div>
+        <div class="gloss-en">restoration · "moving terms"</div>
+        <div class="gloss-meaning"><span class="ar-text">إعادة الحدّ المنقوص إلى الطرف الآخر بإشارة موجبة. عنوان كتاب الخوارزمي، وأصل كلمة <strong>algebra</strong>.</span><span class="en-text">Adding a subtracted term to both sides to remove the negative. The title of al-Khwārizmī's book, and the root of <strong>algebra</strong>.</span></div>
+      </div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">مقابلة</div>
+        <div class="gloss-translit">muqābala</div>
+        <div class="gloss-en">balancing · canceling like terms</div>
+        <div class="gloss-meaning"><span class="ar-text">اختصار الحدود المتشابهة على طرفَي المعادلة. الجزء الثاني من عنوان كتاب «الجبر والمقابلة».</span><span class="en-text">Cancelling like terms on both sides of an equation. The second part of the title <em>al-Jabr wa-l-Muqābala</em>.</span></div>
+      </div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">شيء</div>
+        <div class="gloss-translit">shayʾ</div>
+        <div class="gloss-en">"thing" · the unknown · x</div>
+        <div class="gloss-meaning"><span class="ar-text">المجهول في المعادلة. حين تُرجمت الكتب العربية إلى اللاتينية، نُقلت كلمة "شيء" إلى الإسبانية القديمة <em>xei</em>، ثمّ اختُصرت إلى الحرف <strong>x</strong>.</span><span class="en-text">The unknown in an equation. In medieval Spanish translations of Arabic mathematics, <em>shayʾ</em> became <em>xei</em> and was abbreviated to the letter <strong>x</strong>.</span></div>
+      </div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">جذر</div>
+        <div class="gloss-translit">jadhr</div>
+        <div class="gloss-en">root · x (or √x depending on context)</div>
+        <div class="gloss-meaning"><span class="ar-text">الكلمة العربية لـ "جذر". في الجبر تعني الجذر س (= جانب المربع)، وفي الحساب تعني الجذر التربيعي.</span><span class="en-text">Arabic for "root". In algebra it denotes x (the side of a square); in arithmetic it denotes the square-root operation.</span></div>
+      </div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">مال</div>
+        <div class="gloss-translit">māl</div>
+        <div class="gloss-en">"wealth" · the squared unknown · x²</div>
+        <div class="gloss-meaning"><span class="ar-text">حرفياً: "ثروة" أو "ممتلكات". في الجبر: مساحة المربع الذي ضلعه «جذر»، أي س². أصل التسمية تجاري ميراثيّ.</span><span class="en-text">Literally "wealth". In algebra: the area of a square whose side is the <em>jadhr</em> i.e. x². The name reflects the commercial-inheritance origin of these problems.</span></div>
+      </div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">عدد</div>
+        <div class="gloss-translit">ʿadad</div>
+        <div class="gloss-en">number · constant term · c</div>
+        <div class="gloss-meaning"><span class="ar-text">الحدّ الثابت في المعادلة (بدون «شيء» أو «مال»). يقابل الثابت c في الكتابة الحديثة.</span><span class="en-text">The pure-number (constant) term in an equation, with no x or x² attached the modern <em>c</em>.</span></div>
+      </div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">حالة</div>
+        <div class="gloss-translit">ḥāla</div>
+        <div class="gloss-en">case · canonical form</div>
+        <div class="gloss-meaning"><span class="ar-text">إحدى الصيغ الستّ القانونية التي صنّف بها الخوارزمي معادلاته (الحالة الأولى... الحالة السادسة).</span><span class="en-text">One of the six canonical forms in which al-Khwārizmī classified his equations (Case 1 through Case 6).</span></div>
+      </div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">معادلة</div>
+        <div class="gloss-translit">muʿādala</div>
+        <div class="gloss-en">equation</div>
+        <div class="gloss-meaning"><span class="ar-text">جملة رياضية فيها طرفان متساويان، يربط بينهما المجهول.</span><span class="en-text">A mathematical statement that two expressions, connected by an unknown, are equal.</span></div>
+      </div>
+
+      <!-- ─── Arithmetic & Fractions ─── -->
+      <div class="gloss-section"><span class="ar-text">الحساب والكسور</span><span class="en-text">Arithmetic & Fractions</span></div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">مطوّلة</div>
+        <div class="gloss-translit">muṭawwala</div>
+        <div class="gloss-en">"extended" · long (as in long division)</div>
+        <div class="gloss-meaning"><span class="ar-text">الطريقة الطويلة بخطواتها التفصيلية، كما في «القسمة المطوّلة» عند الكاشي.</span><span class="en-text">The detailed step-by-step method as in "long division" (<em>al-qisma al-muṭawwala</em>) of al-Kāshī.</span></div>
+      </div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">قسمة</div>
+        <div class="gloss-translit">qisma</div>
+        <div class="gloss-en">division</div>
+        <div class="gloss-meaning"><span class="ar-text">عملية القسمة. والمقسوم يقسم على المقسوم عليه فيُعطي خارجاً وباقياً.</span><span class="en-text">Division. The <em>maqsūm</em> (dividend) divided by the <em>maqsūm ʿalayh</em> (divisor) yields a <em>khārij</em> (quotient) and a <em>bāqī</em> (remainder).</span></div>
+      </div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">ضرب</div>
+        <div class="gloss-translit">ḍarb</div>
+        <div class="gloss-en">multiplication</div>
+        <div class="gloss-meaning"><span class="ar-text">عملية الضرب. المضروب × المضروب فيه = الحاصل.</span><span class="en-text">Multiplication. <em>maḍrūb</em> × <em>maḍrūb fīh</em> = <em>ḥāṣil</em> (product).</span></div>
+      </div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">كسر</div>
+        <div class="gloss-translit">kasr</div>
+        <div class="gloss-en">fraction</div>
+        <div class="gloss-meaning"><span class="ar-text">جزء من العدد. الكسر العادي له بسط ومقام، والكسر العشري يستعمل النظام العشري بعد الفاصلة.</span><span class="en-text">A fractional part of a number. A common fraction has a numerator and denominator; a decimal fraction uses positional decimal notation after the separator.</span></div>
+      </div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">بسط</div>
+        <div class="gloss-translit">basṭ</div>
+        <div class="gloss-en">numerator</div>
+        <div class="gloss-meaning"><span class="ar-text">العدد الذي في أعلى الكسر، يدلّ على عدد الأجزاء المأخوذة.</span><span class="en-text">The top number of a fraction, indicating how many parts are taken.</span></div>
+      </div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">مقام</div>
+        <div class="gloss-translit">maqām</div>
+        <div class="gloss-en">denominator</div>
+        <div class="gloss-meaning"><span class="ar-text">العدد الذي في أسفل الكسر، يدلّ على عدد الأجزاء التي قُسّم إليها الكلّ.</span><span class="en-text">The bottom number of a fraction, indicating how many equal parts the whole is divided into.</span></div>
+      </div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">تنصيف</div>
+        <div class="gloss-translit">tanṣīf</div>
+        <div class="gloss-en">halving · ÷ 2</div>
+        <div class="gloss-meaning"><span class="ar-text">قسمة العدد على 2. عند الإقليدسي، تكرار التنصيف يولّد الكسور العشرية تلقائيّاً.</span><span class="en-text">Dividing a number by 2. al-Uqlīdisī showed that repeated halving naturally produces decimal fractions.</span></div>
+      </div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">تضعيف</div>
+        <div class="gloss-translit">taḍʿīf</div>
+        <div class="gloss-en">doubling · × 2</div>
+        <div class="gloss-meaning"><span class="ar-text">ضرب العدد في 2. عملية حسابية أساسية في النصوص الكلاسيكية.</span><span class="en-text">Multiplying a number by 2 a basic operation in the classical texts.</span></div>
+      </div>
+
+      <!-- ─── Roots & Powers ─── -->
+      <div class="gloss-section"><span class="ar-text">الجذور والقوى</span><span class="en-text">Roots & Powers</span></div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">جذر تربيعي</div>
+        <div class="gloss-translit">al-jadhr al-tarbīʿī</div>
+        <div class="gloss-en">square root · √</div>
+        <div class="gloss-meaning"><span class="ar-text">العدد الذي إذا ضُرب في نفسه أعطى العدد الأصلي. ابن الهيثم والكاشي وضعا طُرُقاً منهجية لاستخراجه.</span><span class="en-text">The number that, multiplied by itself, gives the original. ibn al-Haytham and al-Kāshī gave systematic extraction methods.</span></div>
+      </div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">جذر تكعيبي</div>
+        <div class="gloss-translit">al-jadhr al-takʿībī</div>
+        <div class="gloss-en">cube root · ∛</div>
+        <div class="gloss-meaning"><span class="ar-text">العدد الذي إذا ضُرب في نفسه ثلاث مرّات أعطى العدد الأصلي. اشتُهر الكاشي بخوارزميته لاستخراجه.</span><span class="en-text">The number that, multiplied three times by itself, gives the original. al-Kāshī's algorithm for it became famous.</span></div>
+      </div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">كعب</div>
+        <div class="gloss-translit">kaʿb</div>
+        <div class="gloss-en">cube · x³</div>
+        <div class="gloss-meaning"><span class="ar-text">حجم المكعب الذي ضلعه «جذر». اصطلاحاً: قوّة الـ 3 للمجهول.</span><span class="en-text">The volume of a cube whose side is the <em>jadhr</em> the third power of the unknown.</span></div>
+      </div>
+
+      <!-- ─── Verification & Number Theory ─── -->
+      <div class="gloss-section"><span class="ar-text">التحقق ونظرية الأعداد</span><span class="en-text">Verification & Number Theory</span></div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">ميزان</div>
+        <div class="gloss-translit">mīzān</div>
+        <div class="gloss-en">scale · digital root (mod 9)</div>
+        <div class="gloss-meaning"><span class="ar-text">قيمة العدد بعد إسقاط التسعات (≡ العدد بقياس 9). يُستخدم لاختبار صحّة العمليات الحسابية بسرعة.</span><span class="en-text">A number's value after casting out nines (≡ the number mod 9). Used as a fast sanity-check for arithmetic.</span></div>
+      </div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">أعداد متحابّة</div>
+        <div class="gloss-translit">aʿdād mutaḥābba</div>
+        <div class="gloss-en">amicable numbers</div>
+        <div class="gloss-meaning"><span class="ar-text">زوج من الأعداد، كلّ منهما يساوي مجموع قواسم الآخر؛ أوّل زوج (220، 284). درسها ثابت بن قرة بقاعدة توليدية.</span><span class="en-text">A pair where each number equals the sum of the proper divisors of the other; the first pair is (220, 284). Thābit ibn Qurra discovered a generation rule.</span></div>
+      </div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">عدد كامل</div>
+        <div class="gloss-translit">ʿadad kāmil</div>
+        <div class="gloss-en">perfect number</div>
+        <div class="gloss-meaning"><span class="ar-text">عدد يساوي مجموع قواسمه (دون نفسه). مثال: 6 = 1 + 2 + 3، و28 = 1 + 2 + 4 + 7 + 14.</span><span class="en-text">A number equal to the sum of its proper divisors. e.g. 6 = 1 + 2 + 3, and 28 = 1 + 2 + 4 + 7 + 14.</span></div>
+      </div>
+
+      <!-- ─── Geometry & Astronomy ─── -->
+      <div class="gloss-section"><span class="ar-text">الهندسة والفلك</span><span class="en-text">Geometry & Astronomy</span></div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">مخروط</div>
+        <div class="gloss-translit">makhrūṭ</div>
+        <div class="gloss-en">conic / cone</div>
+        <div class="gloss-meaning"><span class="ar-text">المخروط ومقاطعه (دائرة، قطع ناقص، قطع مكافئ، قطع زائد). استعمل الخيام تقاطعها لحلّ المعادلات التكعيبية.</span><span class="en-text">The cone and its sections (circle, ellipse, parabola, hyperbola). Khayyām used their intersections to solve cubic equations.</span></div>
+      </div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">جيب</div>
+        <div class="gloss-translit">jayb</div>
+        <div class="gloss-en">sine · sin</div>
+        <div class="gloss-meaning"><span class="ar-text">دالة الجيب المثلثية. ترجمتها اللاتينية الخاطئة <em>sinus</em> (بمعنى «جَيْب الثوب») أعطتنا الكلمة الإنجليزية <strong>sine</strong>.</span><span class="en-text">The trigonometric sine. A medieval Latin mistranslation as <em>sinus</em> (a fold of cloth) gave us the English word <strong>sine</strong>.</span></div>
+      </div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">ظلّ</div>
+        <div class="gloss-translit">ẓill</div>
+        <div class="gloss-en">tangent · tan</div>
+        <div class="gloss-meaning"><span class="ar-text">حرفياً «الظلّ»؛ نسبة طول ظلّ المزولة الشمسية إلى طول قطعتها العمودية. هذا أصل دالة الظلّ.</span><span class="en-text">Literally "shadow" the ratio of a sundial gnomon's shadow to its length. The origin of the trigonometric tangent.</span></div>
+      </div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">زيج</div>
+        <div class="gloss-translit">zīj</div>
+        <div class="gloss-en">astronomical handbook · table of motions</div>
+        <div class="gloss-meaning"><span class="ar-text">كتاب فلكي يحتوي على جداول حركات الكواكب والشمس والقمر. مثال: الزيج الإلخاني للطوسي.</span><span class="en-text">An astronomical handbook with tables of planetary, solar and lunar motions e.g. al-Ṭūsī's Īlkhānī tables.</span></div>
+      </div>
+
+      <div class="gloss-card">
+        <div class="gloss-term">مجسطي</div>
+        <div class="gloss-translit">Majisṭī</div>
+        <div class="gloss-en">Almagest</div>
+        <div class="gloss-meaning"><span class="ar-text">الكتاب الفلكي الكبير لبطليموس بترجمته العربية، مع تحرير وتعديل وإضافات عربية. أصل كلمة <strong>Almagest</strong>.</span><span class="en-text">Ptolemy's great astronomical work in Arabic translation with substantial Arabic commentary the source of the word <strong>Almagest</strong>.</span></div>
+      </div>
+
+    </div><!-- /gloss-grid -->
+  </div><!-- /panel-glossary -->
+
+  <!-- ══ المراجع / References ══ -->
+  <div id="panel-references" class="panel">
+    <div class="panel-title" data-i18n="refTitle">المراجع</div>
+    <div class="panel-source" data-i18n="refSource">المصدر الأساسي للمحتوى التاريخي والخوارزميات في هذا الموقع</div>
+
+    <div class="refs-block">
+      <div class="refs-section-title"><span class="ar-text">المرجع الأساسي</span><span class="en-text">Primary reference</span></div>
+      <div class="refs-citation">
+        <span class="ar-text">الفريدان، منذر بن راشد. <em>مقتطفات من رياضيات الحضارة الإسلامية</em>.</span>
+        <span class="en-text">Alfuraidan, Monther Rashed. <em>Muqtaṭafāt min Riyāḍiyyāt al-Ḥaḍāra al-Islāmiyya</em> (Excerpts from the Mathematics of the Islamic Civilisation).</span>
+      </div>
+    </div>
+
+    <div class="refs-block">
+      <div class="refs-section-title"><span class="ar-text">المصادر التاريخية الأصلية المرتبطة بالمحتوى</span><span class="en-text">Primary historical sources referenced</span></div>
+      <ul class="refs-chapter-list">
+        <li><span class="ch-title">الخوارزمي · al-Khwārizmī</span><span class="ch-pages"><em>كتاب المختصر في حساب الجبر والمقابلة</em> (~830 CE)</span></li>
+        <li><span class="ch-title">الكندي · al-Kindī</span><span class="ch-pages"><em>رسالة في استخراج المعمّى</em></span></li>
+        <li><span class="ch-title">ثابت بن قرة · Thābit ibn Qurra</span><span class="ch-pages">برهان فيثاغورس</span></li>
+        <li><span class="ch-title">الإقليدسي · al-Uqlīdisī</span><span class="ch-pages"><em>الفصول في الحساب الهندي</em> (~952 CE)</span></li>
+        <li><span class="ch-title">الكاشي · al-Kāshī</span><span class="ch-pages"><em>مفتاح الحساب</em> (1427 CE)</span></li>
+      </ul>
+    </div>
+  </div><!-- /panel-references -->
+
+  <!-- ══ الكندي / Al-Kindi Cryptanalysis ══ -->
+  <!-- ══ مثلث الكَرَجي / Pascal-precursor ══ -->
+  <div id="panel-karaji" class="panel">
+    <div class="panel-title" data-i18n="krTitle">مثلث الكَرَجي والسموأل</div>
+    <div class="panel-source" data-i18n="krSource">الكَرَجي (~1000م) والسموأل (~1150م) · معاملات (س+ص)^ن قبل باسكال بستة قرون</div>
+    <div class="panel-bio">
+      <span class="ar-text"><strong>أبو بكر الكَرَجي</strong> (نحو 953–1029م) ثم <strong>السموأل المغربي</strong> (نحو 1130–1180م) رتّبا معاملات (س + ص) المرفوعة لقوًى في جدول مثلثي ضمن كتابَي «البديع» و«الباهر». أثبت السموأل القاعدة الإضافية بأسلوب يُعدّ من أوائل البراهين بالاستقراء الرياضي، وذلك قبل أن يُعرف هذا المثلث في أوروبا باسم باسكال (1665م) بستة قرون.</span>
+      <span class="en-text"><strong>Abū Bakr al-Karajī</strong> (~953–1029 CE) and <strong>al-Samawʾal al-Maghribī</strong> (~1130–1180 CE) tabulated the coefficients of (x + y)ⁿ in al-Badīʿ and al-Bāhir. Al-Samawʾal proved the addition rule with what is regarded as one of the earliest uses of mathematical induction six centuries before this triangle became known in Europe as Pascal's (1665 CE).</span>
+    </div>
+    <div class="input-card">
+      <div class="input-group">
+        <div class="input-label" data-i18n="krLabelN">عدد الصفوف</div>
+        <input type="number" id="kr-n" class="input-field" value="8" min="3" max="12" style="width:120px" />
+      </div>
+      <button class="btn-primary" onclick="startKr()" data-i18n="krStart">▶ ابنِ المثلث</button>
+    </div>
+    <div id="kr-desc" class="step-desc" data-i18n="krInitDesc">أدخل عدد الصفوف واضغط «ابنِ» لمشاهدة بناء مثلث المعاملات الثنائية صفّاً صفّاً.</div>
+    <div id="kr-viz" class="viz-card"><div class="empty-state" data-i18n="krEmpty">⬆ أدخل عدد الصفوف واضغط ابنِ</div></div>
+    <div class="step-controls">
+      <button class="btn-nav" id="kr-prev" onclick="navKr(-1)" disabled data-i18n="prevBtn">السابق ▶</button>
+      <div class="step-counter" id="kr-ctr"></div>
+      <button class="btn-nav" id="kr-next" onclick="navKr(1)"  disabled data-i18n="nextBtn">◀ التالي</button>
+    </div>
+  </div>
+
+  <div id="panel-alkindi" class="panel">
+    <div class="panel-title" data-i18n="alkTitle">تحليل تواتر الكندي</div>
+    <div class="panel-source" data-i18n="alkSource">الكندي (~801–873م) أول رسالة في فك الشفرات في التاريخ</div>
+    <div class="panel-bio">
+      <span class="ar-text"><strong>يعقوب الكندي</strong> "فيلسوف العرب"، ولد بالكوفة ~801م. في رسالته الشهيرة "في استخراج المعمّى" وصف كيف يمكن فك الشفرات بتحليل تواتر الحروف في النص المشفر ومقارنته بتواتر الحروف في اللغة المعروفة. سبق الكندي أوروبا في هذا الاكتشاف بخمسة قرون.</span>
+      <span class="en-text"><strong>Ya'qūb al-Kindī</strong> "Philosopher of the Arabs", born in Kufa ~801 CE. In his treatise "On Deciphering Encrypted Messages" he described how ciphers can be broken by analysing letter frequency in the ciphertext and comparing it to known language patterns. Al-Kindī preceded Europe in this discovery by five centuries.</span>
+    </div>
+    <div class="input-card" style="flex-direction:column;align-items:stretch;gap:10px">
+      <div class="input-label" data-i18n="alkLabel">اكتب جملة عربية لتشفيرها ثم كسر شفرتها</div>
+      <textarea id="kd-text" class="input-textarea" placeholder="اكتب فقرة عربية هنا…" rows="5">القراءة غذاء العقل وزاد الروح ومن قرأ كتابا في كل يوم فقد عاش في كل عام حياة كاملة فالكتب تحمل تجارب الناس وافكارهم عبر الزمن وتنقل الحكمة من جيل الى جيل ومن اراد ان يعرف نفسه ويفهم العالم من حوله فعليه ان يجعل القراءة عادة يومية فان لكل قراءة فائدة ولكل صفحة درسا ولكل كاتب رسالة يريد ان يوصلها الى قارئه ولولا الكتاب لضاعت العلوم ولاندثرت الحكم وما عرف الناس شيئا مما تركه السابقون من معارف وتجارب وحكايات</textarea>
+      <button class="btn-primary" onclick="startKd()" data-i18n="alkStart">▶ شفّر واكسر</button>
+    </div>
+    <div id="kd-desc" class="step-desc" data-i18n="alkInitDesc">أدخل أي نص عربي واضغط «حلّل» لمشاهدة توزيع تواتر الحروف كما وصفه الكندي.</div>
+    <div id="kd-viz" class="viz-card"><div class="empty-state" data-i18n="alkEmpty">⬆ أدخل نصاً عربياً واضغط حلّل</div></div>
+    <div class="step-controls">
+      <button class="btn-nav" id="kd-prev" onclick="navKd(-1)" disabled data-i18n="prevBtn">السابق ▶</button>
+      <div class="step-counter" id="kd-ctr"></div>
+      <button class="btn-nav" id="kd-next" onclick="navKd(1)"  disabled data-i18n="nextBtn">◀ التالي</button>
+    </div>
+  </div>
+
+  <!-- ══ الكاشي وحساب π / Al-Kashi's π ══ -->
+  <div id="panel-kashi" class="panel">
+    <div class="panel-title" data-i18n="kashiTitle">الكاشي وحساب π بستة عشر منزلة</div>
+    <div class="panel-source" data-i18n="kashiSource">غياث الدين الكاشي ـ الرسالة المحيطية (سمرقند، 1424م)</div>
+    <div class="panel-bio">
+      <span class="ar-text"><strong>غياث الدين جمشيد الكاشي</strong> (1380–1429م) قرّر أن يحسب π بدقّة كافية ليجعل خطأ محيط دائرة بحجم الكون أقلّ من عرض شعرة فرس. أنجز ذلك في «الرسالة المحيطية» (سمرقند، 1424م) عبر مضاعفة المضلّع المنتظم 28 مرّة بدءاً من السداسي، حتى وصل إلى 3·2²⁸ = 805,306,368 ضلعاً. حصل على 2π بستة عشر منزلة عشرية صحيحة، وهو رقم قياسي عالمي صمد لـ 172 عاماً. الفكرة تعتمد على صيغة نصف الزاوية في صورتها المستقرّة عدديّاً.</span>
+      <span class="en-text"><strong>Ghiyāth al-Dīn Jamshīd al-Kāshī</strong> (1380–1429 CE) decided to compute π accurately enough that the circumference of a circle as large as the universe would err by less than a horse's hair. He achieved this in his <em>Treatise on the Circumference</em> (Samarkand, 1424 CE) by doubling a regular polygon 28 times starting from the hexagon, reaching 3·2²⁸ = 805,306,368 sides. He obtained 2π to 16 correct decimal places a world record that stood for 172 years. The method rests on the half-angle relation in its numerically stable form.</span>
+    </div>
+    <div class="input-card">
+      <button class="btn-primary" onclick="startKashi()" data-i18n="kashiStart">▶ ابدأ المضاعفة</button>
+    </div>
+    <div id="kashi-desc" class="step-desc" data-i18n="kashiInitDesc">اضغط «ابدأ» لمشاهدة كيف ضاعف الكاشي عدد أضلاع المضلّع المنتظم 28 مرّة حتى حصل على π بستة عشر منزلة عشرية.</div>
+    <div id="kashi-viz" class="viz-card"><div class="empty-state" data-i18n="kashiEmpty">⬆ اضغط ابدأ المضاعفة</div></div>
+    <div class="step-controls">
+      <button class="btn-nav" id="kashi-prev" onclick="navKashi(-1)" disabled data-i18n="prevBtn">السابق ▶</button>
+      <div class="step-counter" id="kashi-ctr"></div>
+      <button class="btn-nav" id="kashi-next" onclick="navKashi(1)"  disabled data-i18n="nextBtn">◀ التالي</button>
+    </div>
+  </div>
+
+  <!-- ══ مبرهنة فيثاغورس / Pythagorean Theorem ══ -->
+  <div id="panel-pythagoras" class="panel">
+    <div class="panel-title" data-i18n="pythTitle">مبرهنة فيثاغورس البرهان الهندسي</div>
+    <div class="panel-source" data-i18n="pythSource">ثابت بن قرة (~880م) · البرهان الهندسي بالمثلثات الأربعة</div>
+    <div class="panel-bio">
+      <span class="ar-text"><strong>ثابت بن قرة</strong> (826–901م) قدّم برهاناً هندسياً أنيقاً على مبرهنة فيثاغورس، وعمّمها أيضاً لتشمل أي مثلث (وليس القائم فقط) في صورة تسبق قانون جيب التمام. البرهان المقدَّم هنا يعتمد على تنظيم أربعة مثلثات متطابقة داخل مربع كبير.</span>
+      <span class="en-text"><strong>Thābit ibn Qurra</strong> (826–901 CE) gave an elegant geometric proof of the Pythagorean theorem and also generalised it to any triangle anticipating the law of cosines. The proof shown here arranges four congruent right triangles inside a big square to reveal why c² = a² + b².</span>
+    </div>
+    <div class="input-card">
+      <div class="input-group">
+        <div class="input-label" data-i18n="pythLabelA">الضلع أ</div>
+        <input type="number" id="py-a" class="input-field" value="3" min="1" max="18" style="width:120px" />
+      </div>
+      <div class="input-group">
+        <div class="input-label" data-i18n="pythLabelB">الضلع ب</div>
+        <input type="number" id="py-b" class="input-field" value="4" min="1" max="18" style="width:120px" />
+      </div>
+      <button class="btn-primary" onclick="startPy()" data-i18n="pythStart">▶ أثبت</button>
+    </div>
+    <div id="py-desc" class="step-desc" data-i18n="pythInitDesc">أدخل ضلعَي المثلث القائم واضغط «أثبت» لمشاهدة البرهان الهندسي خطوة بخطوة.</div>
+    <div id="py-viz" class="viz-card"><div class="empty-state" data-i18n="pythEmpty">⬆ أدخل الضلعين واضغط أثبت</div></div>
+    <div class="step-controls">
+      <button class="btn-nav" id="py-prev" onclick="navPy(-1)" disabled data-i18n="prevBtn">السابق ▶</button>
+      <div class="step-counter" id="py-ctr"></div>
+      <button class="btn-nav" id="py-next" onclick="navPy(1)"  disabled data-i18n="nextBtn">◀ التالي</button>
+    </div>
+  </div>
+
+  <!-- ══ القسمة المطولة / Long Division ══ -->
+  <div id="panel-division" class="panel">
+    <div class="panel-title" data-i18n="divTitle">القسمة المطولة</div>
+    <div class="panel-source" data-i18n="divSource">طريقة الكاشي كتاب مفتاح الحساب</div>
+    <div class="input-card">
+      <div class="input-group">
+        <div class="input-label" data-i18n="divLabelA">المقسوم</div>
+        <input type="number" id="div-a" class="input-field" value="3565908" min="1" />
+      </div>
+      <div class="input-group">
+        <div class="input-label" data-i18n="divLabelB">المقسوم عليه</div>
+        <input type="number" id="div-b" class="input-field" value="475" min="1" />
+      </div>
+      <button class="btn-primary" onclick="startDiv()" data-i18n="divStart">▶ ابدأ</button>
+    </div>
+    <div id="div-desc" class="step-desc" data-i18n="divInitDesc">أدخل العددين واضغط ابدأ لمشاهدة القسمة خطوة بخطوة.</div>
+    <div id="div-viz"  class="viz-card"><div class="empty-state" data-i18n="divEmpty">⬆ أدخل الأعداد واضغط ابدأ</div></div>
+    <div class="step-controls">
+      <button class="btn-nav" id="div-prev" onclick="navDiv(-1)" disabled data-i18n="prevBtn">السابق ▶</button>
+      <div class="step-counter" id="div-ctr"></div>
+      <button class="btn-nav" id="div-next" onclick="navDiv(1)"  disabled data-i18n="nextBtn">◀ التالي</button>
+    </div>
+  </div>
+
+  <!-- ══ الضرب بالشبكة / Lattice Multiplication ══ -->
+  <div id="panel-multiply" class="panel">
+    <div class="panel-title" data-i18n="mulTitle">الضرب المطول بالشبكة</div>
+    <div class="panel-source" data-i18n="mulSource">طريقة الكاشي ضرب الأعداد بالشبكة الإسلامية</div>
+    <div class="input-card">
+      <div class="input-group">
+        <div class="input-label" data-i18n="mulLabelA">المضروب</div>
+        <input type="number" id="mul-a" class="input-field" value="347" min="1" />
+      </div>
+      <div class="input-group">
+        <div class="input-label" data-i18n="mulLabelB">المضروب فيه</div>
+        <input type="number" id="mul-b" class="input-field" value="62" min="1" />
+      </div>
+      <button class="btn-primary" onclick="startMul()" data-i18n="mulStart">▶ ابدأ</button>
+    </div>
+    <div id="mul-desc" class="step-desc" data-i18n="mulInitDesc">أدخل العددين واضغط ابدأ لمشاهدة الضرب بالشبكة خطوة بخطوة.</div>
+    <div id="mul-viz"  class="viz-card"><div class="empty-state" data-i18n="mulEmpty">⬆ أدخل الأعداد واضغط ابدأ</div></div>
+    <div class="step-controls">
+      <button class="btn-nav" id="mul-prev" onclick="navMul(-1)" disabled data-i18n="prevBtn">السابق ▶</button>
+      <div class="step-counter" id="mul-ctr"></div>
+      <button class="btn-nav" id="mul-next" onclick="navMul(1)"  disabled data-i18n="nextBtn">◀ التالي</button>
+    </div>
+  </div>
+
+  <!-- ══ الكسور العشرية / Decimal Fractions (al-Uqlīdisī) ══ -->
+  <div id="panel-decimal" class="panel">
+    <div class="panel-title" data-i18n="decTitle">الكسور العشرية</div>
+    <div class="panel-source" data-i18n="decSource">طريقة الإقليدسي (~952م) كتاب الفصول في الحساب الهندي أوّل من أسّس مفهوم الكسر العشري</div>
+    <div class="input-card">
+      <div class="input-group">
+        <div class="input-label" data-i18n="decLabelN">العدد</div>
+        <input type="number" id="dc-n" class="input-field" value="19" step="any" style="width:140px" />
+      </div>
+      <div class="input-group">
+        <div class="input-label" data-i18n="decLabelOp">العملية</div>
+        <select id="dc-op" class="input-select" style="width:auto;min-width:160px;font-size:15px">
+          <option value="halve" data-i18n="decOpHalve">÷ 2 (تنصيف)</option>
+          <option value="addtenth" data-i18n="decOpAddTenth">× (1 + 1/10)</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <div class="input-label" data-i18n="decLabelK">عدد المرات</div>
+        <input type="number" id="dc-k" class="input-field" value="5" min="1" max="10" style="width:100px" />
+      </div>
+      <button class="btn-primary" onclick="startDc()" data-i18n="decStart">▶ ابدأ</button>
+    </div>
+    <div id="dc-desc" class="step-desc" data-i18n="decInitDesc">اختر عدداً وعمليّةً واضغط ابدأ لمشاهدة كيف نشأت الكسور العشرية في طريقة الإقليدسي.</div>
+    <div id="dc-viz"  class="viz-card"><div class="empty-state" data-i18n="decEmpty">⬆ أدخل العدد واضغط ابدأ</div></div>
+    <div class="step-controls">
+      <button class="btn-nav" id="dc-prev" onclick="navDc(-1)" disabled data-i18n="prevBtn">السابق ▶</button>
+      <div class="step-counter" id="dc-ctr"></div>
+      <button class="btn-nav" id="dc-next" onclick="navDc(1)"  disabled data-i18n="nextBtn">◀ التالي</button>
+    </div>
+  </div>
+
+  <!-- ══ الجذر التربيعي / Square Root ══ -->
+  <div id="panel-sqrt" class="panel">
+    <div class="panel-title" data-i18n="sqrtTitle">الجذر التربيعي</div>
+    <div class="panel-source" data-i18n="sqrtSource">طريقة الكاشي مفتاح الحساب (تجميع الأرقام زوجاً زوجاً)</div>
+    <div class="input-card">
+      <div class="input-group">
+        <div class="input-label" data-i18n="sqrtLabelN">العدد</div>
+        <input type="number" id="sq-n" class="input-field" value="331781" min="1" />
+      </div>
+      <button class="btn-primary" onclick="startSq()" data-i18n="sqrtStart">▶ ابدأ</button>
+    </div>
+    <div id="sq-desc" class="step-desc" data-i18n="sqrtInitDesc">أدخل العدد واضغط ابدأ لمشاهدة خطوات الجذر التربيعي.</div>
+    <div id="sq-viz"  class="viz-card"><div class="empty-state" data-i18n="sqrtEmpty">⬆ أدخل العدد واضغط ابدأ</div></div>
+    <div class="step-controls">
+      <button class="btn-nav" id="sq-prev" onclick="navSq(-1)" disabled data-i18n="prevBtn">السابق ▶</button>
+      <div class="step-counter" id="sq-ctr"></div>
+      <button class="btn-nav" id="sq-next" onclick="navSq(1)"  disabled data-i18n="nextBtn">◀ التالي</button>
+    </div>
+  </div>
+
+  <!-- ══ الجذر التكعيبي / Cube Root ══ -->
+  <div id="panel-cbrt" class="panel">
+    <div class="panel-title" data-i18n="cbrtTitle">الجذر التكعيبي</div>
+    <div class="panel-source" data-i18n="cbrtSource">طريقة الكاشي أشهر إنجازاته الحسابية</div>
+    <div class="input-card">
+      <div class="input-group">
+        <div class="input-label" data-i18n="cbrtLabelN">العدد</div>
+        <input type="number" id="cb-n" class="input-field" value="12167" min="1" />
+      </div>
+      <button class="btn-primary" onclick="startCb()" data-i18n="cbrtStart">▶ ابدأ</button>
+    </div>
+    <div id="cb-desc" class="step-desc" data-i18n="cbrtInitDesc">أدخل العدد واضغط ابدأ لمشاهدة خطوات الجذر التكعيبي.</div>
+    <div id="cb-viz"  class="viz-card"><div class="empty-state" data-i18n="cbrtEmpty">⬆ أدخل العدد واضغط ابدأ</div></div>
+    <div class="step-controls">
+      <button class="btn-nav" id="cb-prev" onclick="navCb(-1)" disabled data-i18n="prevBtn">السابق ▶</button>
+      <div class="step-counter" id="cb-ctr"></div>
+      <button class="btn-nav" id="cb-next" onclick="navCb(1)"  disabled data-i18n="nextBtn">◀ التالي</button>
+    </div>
+  </div>
+
+  <!-- ══ الميزان / Al-Mizan ══ -->
+  <div id="panel-mizan" class="panel">
+    <div class="panel-title" data-i18n="mizanTitle">الميزان</div>
+    <div class="panel-source" data-i18n="mizanSource">التحقق من صحة العمليات الحسابية بطريقة الميزان</div>
+    <div class="input-card">
+      <div class="input-group">
+        <div class="input-label" data-i18n="mizanLabelA">العدد الأول</div>
+        <input type="number" id="mz-a" class="input-field" value="345" />
+      </div>
+      <div class="input-group">
+        <div class="input-label" data-i18n="mizanLabelOp">العملية</div>
+        <select id="mz-op" class="input-select" onchange="mzOpChange()">
+          <option value="×">×</option>
+          <option value="+">+</option>
+          <option value="-">−</option>
+          <option value="÷">÷</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <div class="input-label" data-i18n="mizanLabelB">العدد الثاني</div>
+        <input type="number" id="mz-b" class="input-field" value="67" />
+      </div>
+      <div class="eq-symbol">=</div>
+      <div class="input-group">
+        <div class="input-label" id="mz-r-label" data-i18n="mizanLabelR">الناتج المزعوم</div>
+        <input type="number" id="mz-r" class="input-field" value="23115" />
+      </div>
+      <div class="input-group" id="mz-rem-group" style="display:none">
+        <div class="input-label" data-i18n="mizanLabelRem">الباقي</div>
+        <input type="number" id="mz-rem" class="input-field" value="0" min="0" style="width:140px"/>
+      </div>
+      <button class="btn-primary" onclick="startMz()" data-i18n="mizanStart">⊜ تحقق</button>
+    </div>
+    <div id="mz-desc" class="step-desc" data-i18n="mizanInitDesc">أدخل العملية الحسابية واضغط تحقق للتحقق من صحتها.</div>
+    <div id="mz-viz"  class="viz-card"><div class="empty-state" data-i18n="mizanEmpty">⬆ أدخل العملية واضغط تحقق</div></div>
+    <div class="step-controls">
+      <button class="btn-nav" id="mz-prev" onclick="navMz(-1)" disabled data-i18n="prevBtn">السابق ▶</button>
+      <div class="step-counter" id="mz-ctr"></div>
+      <button class="btn-nav" id="mz-next" onclick="navMz(1)"  disabled data-i18n="nextBtn">◀ التالي</button>
+    </div>
+  </div>
+
+  <!-- ══ المعادلات التربيعية / Quadratic Equations (al-Khwārizmī geometric method) ══ -->
+  <div id="panel-jabr" class="panel">
+    <div class="panel-title" data-i18n="jabrTitle">حلّ المعادلة التربيعية هندسيّاً</div>
+    <div class="panel-source" data-i18n="jabrSource">طريقة الخوارزمي ـ كتاب المختصر في حساب الجبر والمقابلة (~830م)</div>
+    <div class="panel-bio">
+      <span class="ar-text"><strong>ماذا تفعل هذه الأداة؟</strong> تأخذ معادلة من الدرجة الثانية وتُحلّها بطريقة الخوارزمي. صنّف الخوارزمي معادلاته في ست حالات قانونيّة:
+        <br>• الحالات <strong>الأحاديّة</strong> (1، 2، 3) حدّان فقط، تُحلّ مباشرةً بقسمة أو جذر تربيعي.
+        <br>• الحالات <strong>الثلاثيّة</strong> (4، 5، 6) ثلاثة حدود، وتُحلّ هندسيّاً: نُمثّل «س²» مربعاً و«بس» مستطيلَين والثابت «جـ» مساحةً معلومة، ثمّ نُكمل الشكل إلى مربع تامّ ونستخرج قيمة المجهول من جانبه.
+      </span>
+      <span class="en-text"><strong>What this does:</strong> takes a quadratic equation and solves it al-Khwārizmī's way. He classified quadratics into six canonical forms:
+        <br>• <strong>Monomial</strong> cases (1, 2, 3) two terms only, solved directly by division or square root.
+        <br>• <strong>Trinomial</strong> cases (4, 5, 6) three terms, solved geometrically: x² becomes a square, bx two rectangles, c a known area; complete the figure into a perfect square and read x off its side.
+      </span>
+    </div>
+    <div class="input-card">
+      <div class="input-group">
+        <div class="input-label" data-i18n="jabrLabelCase">الحالة</div>
+        <select id="jb-case" class="input-select" onchange="jbCaseChange()" style="width:auto;min-width:240px;font-size:14px">
+          <optgroup label="الحالات الأحادية" data-i18n-label="jabrGroupMonomial">
+            <option value="1" data-i18n="jabrCase1">(1)  س² = بس</option>
+            <option value="2" data-i18n="jabrCase2">(2)  س² = جـ</option>
+            <option value="3" data-i18n="jabrCase3">(3)  بس = جـ</option>
+          </optgroup>
+          <optgroup label="الحالات الثلاثية" data-i18n-label="jabrGroupTrinomial">
+            <option value="4" data-i18n="jabrCase4" selected>(4)  س² + بس = جـ</option>
+            <option value="5" data-i18n="jabrCase5">(5)  س² + جـ = بس</option>
+            <option value="6" data-i18n="jabrCase6">(6)  س² = بس + جـ</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="input-group">
+        <div class="input-label" data-i18n="jabrLabelB">معامل س (ب)</div>
+        <input type="number" id="jb-b" class="input-field" value="10" min="0.1" step="any" style="width:140px" />
+      </div>
+      <div class="input-group">
+        <div class="input-label" data-i18n="jabrLabelC">الثابت (جـ)</div>
+        <input type="number" id="jb-c" class="input-field" value="39" min="0.1" step="any" style="width:140px" />
+      </div>
+      <button class="btn-primary" onclick="startJb()" data-i18n="jabrStart">▶ ابدأ</button>
+    </div>
+    <div id="jb-desc" class="step-desc" data-i18n="jabrInitDesc">أدخل معادلة س² + بس = جـ واضغط ابدأ لمشاهدة الحل الهندسي خطوة بخطوة.</div>
+    <div id="jb-viz"  class="viz-card"><div class="empty-state" data-i18n="jabrEmpty">⬆ أدخل المعادلة واضغط ابدأ</div></div>
+    <div class="step-controls">
+      <button class="btn-nav" id="jb-prev" onclick="navJb(-1)" disabled data-i18n="prevBtn">السابق ▶</button>
+      <div class="step-counter" id="jb-ctr"></div>
+      <button class="btn-nav" id="jb-next" onclick="navJb(1)"  disabled data-i18n="nextBtn">◀ التالي</button>
+    </div>
+  </div>
+
+  <!-- ══ حساب الخطأين / Double False Position ══ -->
+  <div id="panel-falsepos" class="panel">
+    <div class="panel-title" data-i18n="fpTitle">حساب الخطأين</div>
+    <div class="panel-source" data-i18n="fpSource">حل المعادلات الخطية بطريقة التخمين التراث الرياضي الإسلامي</div>
+    <div class="input-card">
+      <div class="input-group">
+        <div class="input-label" data-i18n="fpLabelA">المعامل (أ)</div>
+        <input type="number" id="fp-a" class="input-field" value="3" style="width:120px" />
+      </div>
+      <div class="input-group">
+        <div class="input-label" data-i18n="fpLabelB">الثابت (ب)</div>
+        <input type="number" id="fp-b" class="input-field" value="7" style="width:120px" />
+      </div>
+      <div class="eq-symbol">=</div>
+      <div class="input-group">
+        <div class="input-label" data-i18n="fpLabelC">الهدف</div>
+        <input type="number" id="fp-c" class="input-field" value="25" style="width:120px" />
+      </div>
+      <div class="input-group">
+        <div class="input-label" data-i18n="fpLabelG1">التخمين الأول</div>
+        <input type="number" id="fp-g1" class="input-field" value="4" style="width:120px" />
+      </div>
+      <div class="input-group">
+        <div class="input-label" data-i18n="fpLabelG2">التخمين الثاني</div>
+        <input type="number" id="fp-g2" class="input-field" value="10" style="width:120px" />
+      </div>
+      <button class="btn-primary" onclick="startFp()" data-i18n="fpStart">▶ ابدأ</button>
+    </div>
+    <div id="fp-desc" class="step-desc" data-i18n="fpInitDesc">أدخل معادلة من الشكل: أ × س + ب = هدف، وتخمينين، ثم اضغط ابدأ.</div>
+    <div id="fp-viz"  class="viz-card"><div class="empty-state" data-i18n="fpEmpty">⬆ أدخل المعادلة والتخمينات واضغط ابدأ</div></div>
+    <div class="step-controls">
+      <button class="btn-nav" id="fp-prev" onclick="navFp(-1)" disabled data-i18n="prevBtn">السابق ▶</button>
+      <div class="step-counter" id="fp-ctr"></div>
+      <button class="btn-nav" id="fp-next" onclick="navFp(1)"  disabled data-i18n="nextBtn">◀ التالي</button>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- ═══════════════════ SIDEBAR ═══════════════════ -->
+<div class="sidebar">
+
+  <!-- Home -->
+  <button class="tab-btn active" data-tab="home" onclick="switchTab('home', this)">
+    <span class="tab-icon">⌂</span>
+    <span data-i18n="tabHome">الرئيسية</span>
+  </button>
+  <button class="tab-btn" data-tab="scholars" onclick="switchTab('scholars', this)">
+    <span class="tab-icon">✦</span>
+    <span data-i18n="tabScholars">العلماء</span>
+  </button>
+
+  <!-- الحساب / Arithmetic -->
+  <div class="cat-label" data-i18n="catArithmetic">الحساب</div>
+  <button class="tab-btn" data-tab="division" onclick="switchTab('division', this)">
+    <span class="tab-icon">÷</span>
+    <span data-i18n="tabDiv">القسمة المطولة</span>
+  </button>
+  <button class="tab-btn" data-tab="multiply" onclick="switchTab('multiply', this)">
+    <span class="tab-icon">×</span>
+    <span data-i18n="tabMul">الضرب بالشبكة</span>
+  </button>
+  <button class="tab-btn" data-tab="decimal" onclick="switchTab('decimal', this)">
+    <span class="tab-icon">0.1</span>
+    <span data-i18n="tabDec">الكسور العشرية</span>
+  </button>
+
+  <!-- الجذور / Roots -->
+  <div class="cat-label" data-i18n="catRoots">الجذور</div>
+  <button class="tab-btn" data-tab="sqrt" onclick="switchTab('sqrt', this)">
+    <span class="tab-icon">√</span>
+    <span data-i18n="tabSqrt">الجذر التربيعي</span>
+  </button>
+  <button class="tab-btn" data-tab="cbrt" onclick="switchTab('cbrt', this)">
+    <span class="tab-icon">∛</span>
+    <span data-i18n="tabCbrt">الجذر التكعيبي</span>
+  </button>
+
+  <!-- التحقق / Verification -->
+  <div class="cat-label" data-i18n="catVerify">التحقق</div>
+  <button class="tab-btn" data-tab="mizan" onclick="switchTab('mizan', this)">
+    <span class="tab-icon">⊜</span>
+    <span data-i18n="tabMizan">الميزان</span>
+  </button>
+
+  <!-- الجبر / Algebra -->
+  <div class="cat-label" data-i18n="catAlgebra">الجبر</div>
+  <button class="tab-btn" data-tab="jabr" onclick="switchTab('jabr', this)">
+    <span class="tab-icon">□</span>
+    <span data-i18n="tabJabr">المعادلات التربيعية</span>
+  </button>
+  <button class="tab-btn" data-tab="falsepos" onclick="switchTab('falsepos', this)">
+    <span class="tab-icon">≈</span>
+    <span data-i18n="tabFp">حساب الخطأين</span>
+  </button>
+
+  <!-- نظرية الأعداد / Number Theory -->
+  <div class="cat-label" data-i18n="catNumberTheory">نظرية الأعداد</div>
+  <button class="tab-btn" data-tab="karaji" onclick="switchTab('karaji', this)">
+    <span class="tab-icon">▲</span>
+    <span data-i18n="tabKaraji">مثلث الكَرَجي</span>
+  </button>
+  <button class="tab-btn" data-tab="alkindi" onclick="switchTab('alkindi', this)">
+    <span class="tab-icon">⊕</span>
+    <span data-i18n="tabAlKindi">الكندي التشفير</span>
+  </button>
+
+  <!-- الهندسة / Geometry -->
+  <div class="cat-label" data-i18n="catGeometry">الهندسة الكلاسيكية</div>
+  <button class="tab-btn" data-tab="quhi" onclick="switchTab('quhi', this)">
+    <span class="tab-icon">∠</span>
+    <span data-i18n="tabQuhi">تثليث الكوهي</span>
+  </button>
+  <button class="tab-btn" data-tab="pythagoras" onclick="switchTab('pythagoras', this)">
+    <span class="tab-icon">△</span>
+    <span data-i18n="tabPyth">مبرهنة فيثاغورس</span>
+  </button>
+  <button class="tab-btn" data-tab="kashi" onclick="switchTab('kashi', this)">
+    <span class="tab-icon">π</span>
+    <span data-i18n="tabKashi">الكاشي وحساب π</span>
+  </button>
+
+  <!-- علم المثلثات / Trigonometry -->
+  <div class="cat-label" data-i18n="catTrig">علم المثلثات</div>
+  <button class="tab-btn" data-tab="wafa" onclick="switchTab('wafa', this)">
+    <span class="tab-icon">∡</span>
+    <span data-i18n="tabWafa">أبو الوفاء</span>
+  </button>
+
+  <!-- المراجع / References -->
+  <div class="cat-label" data-i18n="catRefs">المراجع</div>
+  <button class="tab-btn" data-tab="glossary" onclick="switchTab('glossary', this)">
+    <span class="tab-icon">A</span>
+    <span data-i18n="tabGloss">المسرد</span>
+  </button>
+  <button class="tab-btn" data-tab="references" onclick="switchTab('references', this)">
+    <span class="tab-icon">§</span>
+    <span data-i18n="tabRefs">المراجع</span>
+  </button>
+
+</div><!-- /sidebar -->
+
+<!-- ═══════════════════ SCRIPTS ═══════════════════ -->
+<script src="js/i18n.js?v=114"></script>
+<script src="js/main.js?v=104"></script>
+<script src="js/division.js?v=107"></script>
+<script src="js/multiply.js?v=109"></script>
+<script src="js/sqrt.js?v=111"></script>
+<script src="js/cbrt.js?v=103"></script>
+<script src="js/mizan.js?v=108"></script>
+<script src="js/falsepos.js?v=102"></script>
+<script src="js/decimal.js?v=104"></script>
+<script src="js/jabr.js?v=107"></script>
+<script src="js/alkindi.js?v=107"></script>
+<script src="js/karaji.js?v=102"></script>
+<script src="js/geometry.js?v=103"></script>
+<script src="js/kashi-pi.js?v=103"></script>
+<script src="js/wafa.js?v=102"></script>
+<script src="js/home-facts.js?v=101"></script>
+
+</body>
+</html>

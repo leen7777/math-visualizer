@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الرياضيات البصرية</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* ── SIDEBAR ───────────────────────────────────────── */
+    .sidebar {
+      width: 230px;
+      background: #1e293b;
+      border-left: 2px solid #334155;
+      display: flex;
+      flex-direction: column;
+      padding: 24px 14px;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .app-title {
+      color: #f59e0b;
+      font-size: 17px;
+      font-weight: bold;
+      text-align: center;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #334155;
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+    .tab-btn {
+      background: transparent;
+      border: 1px solid #334155;
+      color: #94a3b8;
+      padding: 14px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 15px;
+      text-align: right;
+      font-family: inherit;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .tab-btn:hover { border-color: #f59e0b; color: #f59e0b; }
+    .tab-btn.active {
+      background: #f59e0b;
+      color: #0f172a;
+      border-color: #f59e0b;
+      font-weight: bold;
+    }
+    .tab-icon { font-size: 20px; }
+
+    /* ── MAIN ──────────────────────────────────────────── */
+    .main { flex: 1; overflow-y: auto; padding: 32px; }
+
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    .panel-title { font-size: 28px; color: #f59e0b; font-weight: bold; }
+    .panel-source { color: #475569; font-size: 13px; margin-top: 5px; margin-bottom: 26px; }
+
+    /* ── INPUT CARD ────────────────────────────────────── */
+    .input-card {
+      background: #1e293b;
+      border-radius: 14px;
+      padding: 22px 24px;
+      margin-bottom: 22px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+    .input-group { display: flex; flex-direction: column; gap: 7px; }
+    .input-label { font-size: 13px; color: #64748b; }
+    .input-field {
+      background: #0f172a;
+      border: 1px solid #334155;
+      color: #e2e8f0;
+      padding: 11px 16px;
+      border-radius: 9px;
+      font-size: 20px;
+      font-family: inherit;
+      width: 190px;
+      text-align: center;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .input-field:focus { border-color: #f59e0b; }
+    .input-select {
+      background: #0f172a;
+      border: 1px solid #334155;
+      color: #e2e8f0;
+      padding: 11px 10px;
+      border-radius: 9px;
+      font-size: 22px;
+      font-family: inherit;
+      width: 80px;
+      text-align: center;
+      outline: none;
+    }
+    .eq-symbol { font-size: 26px; color: #64748b; padding-bottom: 4px; }
+    .btn-primary {
+      background: #f59e0b;
+      color: #0f172a;
+      border: none;
+      padding: 13px 28px;
+      border-radius: 9px;
+      font-size: 16px;
+      font-weight: bold;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #d97706; }
+
+    /* ── STEP DESCRIPTION ─────────────────────────────── */
+    .step-desc {
+      background: #1e293b;
+      border-right: 4px solid #f59e0b;
+      padding: 14px 18px;
+      border-radius: 0 10px 10px 0;
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.8;
+      min-height: 54px;
+      color: #cbd5e1;
+    }
+
+    /* ── VIZ CARD ─────────────────────────────────────── */
+    .viz-card {
+      background: #1e293b;
+      border-radius: 14px;
+      padding: 28px;
+      min-height: 200px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+    }
+
+    /* ── STEP CONTROLS ────────────────────────────────── */
+    .step-controls {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .btn-nav {
+      background: #334155;
+      color: #e2e8f0;
+      border: none;
+      padding: 11px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      font-family: inherit;
+      transition: background 0.2s;
+    }
+    .btn-nav:hover:not(:disabled) { background: #475569; }
+    .btn-nav:disabled { opacity: 0.35; cursor: not-allowed; }
+    .step-counter { color: #64748b; font-size: 14px; flex: 1; text-align: center; }
+
+    /* ── DIVISION GRID ────────────────────────────────── */
+    .div-grid { display: flex; flex-direction: column; align-items: flex-start; direction: ltr; gap: 2px; }
+    .row-label { font-size: 12px; color: #475569; margin-bottom: 4px; direction: rtl; }
+    .grid-row { display: flex; direction: ltr; }
+    .cell {
+      width: 42px; height: 42px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; font-weight: bold; border-radius: 6px;
+      transition: all 0.35s;
+      position: relative;
+    }
+    .cell-q { color: #4ade80; }
+    .cell-d { color: #e2e8f0; }
+    .cell-b { color: #60a5fa; font-size: 20px; }
+    .cell-active { background: rgba(245,158,11,0.18); border: 1px solid #f59e0b; }
+    .cell-used { color: #334155; text-decoration: line-through; }
+    .h-rule { height: 2px; background: #475569; margin: 3px 0; }
+
+    .sub-block {
+      background: #0f172a;
+      border-radius: 8px;
+      padding: 12px 18px;
+      margin-top: 16px;
+      direction: ltr;
+      display: inline-block;
+      font-size: 18px;
+      font-family: monospace;
+    }
+    .sub-line { height: 1px; background: #334155; margin: 6px 0; }
+
+    .result-box {
+      text-align: center; padding: 18px 24px; border-radius: 12px; margin-top: 16px;
+    }
+    .result-ok { background: rgba(74,222,128,0.12); border: 1px solid #4ade80; color: #4ade80; }
+    .result-err { background: rgba(248,113,113,0.12); border: 1px solid #f87171; color: #f87171; }
+    .result-text { font-size: 20px; font-weight: bold; }
+
+    /* ── SQRT GRID ───────────────────────────────────── */
+    .pairs-row { display: flex; gap: 6px; direction: ltr; margin-bottom: 14px; }
+    .pair-block { display: flex; }
+    .pair-cell {
+      width: 42px; height: 42px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 19px; font-weight: bold;
+      border: 1px solid #334155; border-radius: 6px;
+      background: #0f172a;
+      transition: all 0.3s;
+    }
+    .pair-active { border-color: #f59e0b !important; background: rgba(245,158,11,0.14) !important; color: #f59e0b !important; }
+    .pair-done  { border-color: #4ade80 !important; color: #4ade80 !important; }
+    .pair-sep { width: 8px; display: flex; align-items: center; justify-content: center; color: #475569; font-size: 20px; }
+
+    .root-row { display: flex; gap: 6px; direction: ltr; margin-bottom: 16px; }
+    .root-cell {
+      width: 42px; height: 42px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; font-weight: bold; color: #4ade80;
+      border-bottom: 2px solid #4ade80;
+      transition: all 0.3s;
+    }
+
+    .working-box {
+      background: #0f172a; border-radius: 8px; padding: 14px 18px;
+      font-size: 15px; direction: rtl; line-height: 2.2;
+      display: inline-block; min-width: 260px;
+    }
+    .wval { font-weight: bold; font-size: 18px; }
+
+    /* ── MIZAN ───────────────────────────────────────── */
+    .miz-layout { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+    .miz-equation { font-size: 22px; font-weight: bold; color: #e2e8f0; }
+    .miz-nums { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; justify-content: center; }
+    .miz-box {
+      background: #0f172a; border-radius: 10px; padding: 16px 20px;
+      text-align: center; min-width: 130px; transition: all 0.3s;
+    }
+    .miz-box-title { font-size: 12px; color: #475569; margin-bottom: 8px; }
+    .miz-big { font-size: 26px; font-weight: bold; color: #e2e8f0; }
+    .miz-chain { font-size: 13px; color: #60a5fa; margin-top: 6px; direction: ltr; }
+    .miz-dr { font-size: 13px; color: #f59e0b; margin-top: 6px; }
+    .miz-op-sym { font-size: 32px; color: #f59e0b; }
+    .miz-eq-sym { font-size: 28px; color: #475569; }
+
+    .op-result-box {
+      background: #0f172a; border-radius: 10px; padding: 14px 22px;
+      text-align: center; font-size: 16px;
+    }
+
+    /* Balance SVG */
+    .balance-wrap { width: 100%; max-width: 420px; }
+    .balance-wrap svg { width: 100%; }
+    .empty-state { text-align: center; color: #334155; font-size: 18px; padding: 40px; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ MAIN ═══════════════════ -->
+<div class="main">
+
+  <!-- ── DIVISION ── -->
+  <div id="panel-division" class="panel active">
+    <div class="panel-title">القسمة المطولة</div>
+    <div class="panel-source">طريقة الكاشي — كتاب مفتاح الحساب</div>
+
+    <div class="input-card">
+      <div class="input-group">
+        <div class="input-label">المقسوم</div>
+        <input type="number" id="div-a" class="input-field" value="3565908" min="1" />
+      </div>
+      <div class="input-group">
+        <div class="input-label">المقسوم عليه</div>
+        <input type="number" id="div-b" class="input-field" value="475" min="1" />
+      </div>
+      <button class="btn-primary" onclick="startDiv()">▶ ابدأ</button>
+    </div>
+
+    <div id="div-desc" class="step-desc">أدخل العددين واضغط ابدأ لمشاهدة القسمة خطوة بخطوة.</div>
+    <div id="div-viz" class="viz-card"><div class="empty-state">⬆ أدخل الأعداد واضغط ابدأ</div></div>
+    <div class="step-controls">
+      <button class="btn-nav" id="div-prev" onclick="navDiv(-1)" disabled>السابق ▶</button>
+      <div class="step-counter" id="div-ctr"></div>
+      <button class="btn-nav" id="div-next" onclick="navDiv(1)" disabled>◀ التالي</button>
+    </div>
+  </div>
+
+  <!-- ── SQRT ── -->
+  <div id="panel-sqrt" class="panel">
+    <div class="panel-title">الجذر التربيعي</div>
+    <div class="panel-source">طريقة ابن الهيثم — علم الجبر عند العرب والمسلمين</div>
+
+    <div class="input-card">
+      <div class="input-group">
+        <div class="input-label">العدد</div>
+        <input type="number" id="sq-n" class="input-field" value="331781" min="1" />
+      </div>
+      <button class="btn-primary" onclick="startSq()">▶ ابدأ</button>
+    </div>
+
+    <div id="sq-desc" class="step-desc">أدخل العدد واضغط ابدأ لمشاهدة خطوات الجذر التربيعي.</div>
+    <div id="sq-viz" class="viz-card"><div class="empty-state">⬆ أدخل العدد واضغط ابدأ</div></div>
+    <div class="step-controls">
+      <button class="btn-nav" id="sq-prev" onclick="navSq(-1)" disabled>السابق ▶</button>
+      <div class="step-counter" id="sq-ctr"></div>
+      <button class="btn-nav" id="sq-next" onclick="navSq(1)" disabled>◀ التالي</button>
+    </div>
+  </div>
+
+  <!-- ── MIZAN ── -->
+  <div id="panel-mizan" class="panel">
+    <div class="panel-title">الميزان</div>
+    <div class="panel-source">التحقق من صحة العمليات الحسابية بطريقة الجذر الرقمي</div>
+
+    <div class="input-card">
+      <div class="input-group">
+        <div class="input-label">العدد الأول</div>
+        <input type="number" id="mz-a" class="input-field" value="345" />
+      </div>
+      <div class="input-group">
+        <div class="input-label">العملية</div>
+        <select id="mz-op" class="input-select" onchange="mzOpChange()">
+          <option value="×">×</option>
+          <option value="+">+</option>
+          <option value="-">−</option>
+          <option value="÷">÷</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <div class="input-label">العدد الثاني</div>
+        <input type="number" id="mz-b" class="input-field" value="67" />
+      </div>
+      <div class="eq-symbol">=</div>
+      <div class="input-group">
+        <div class="input-label">الناتج (الخارج)</div>
+        <input type="number" id="mz-r" class="input-field" value="23115" />
+      </div>
+      <div class="input-group" id="mz-rem-group" style="display:none">
+        <div class="input-label">الباقي</div>
+        <input type="number" id="mz-rem" class="input-field" value="0" min="0" style="width:140px"/>
+      </div>
+      <button class="btn-primary" onclick="startMz()">⚖ تحقق</button>
+    </div>
+
+    <div id="mz-desc" class="step-desc">أدخل العملية الحسابية واضغط تحقق للتحقق من صحتها.</div>
+    <div id="mz-viz" class="viz-card"><div class="empty-state">⬆ أدخل العملية واضغط تحقق</div></div>
+    <div class="step-controls">
+      <button class="btn-nav" id="mz-prev" onclick="navMz(-1)" disabled>السابق ▶</button>
+      <div class="step-counter" id="mz-ctr"></div>
+      <button class="btn-nav" id="mz-next" onclick="navMz(1)" disabled>◀ التالي</button>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- ═══════════════════ SIDEBAR ═══════════════════ -->
+<div class="sidebar">
+  <div class="app-title">🔢 الرياضيات<br>البصرية</div>
+  <button class="tab-btn active" onclick="switchTab('division', this)">
+    <span class="tab-icon">÷</span> القسمة المطولة
+  </button>
+  <button class="tab-btn" onclick="switchTab('sqrt', this)">
+    <span class="tab-icon">√</span> الجذر التربيعي
+  </button>
+  <button class="tab-btn" onclick="switchTab('mizan', this)">
+    <span class="tab-icon">⚖</span> الميزان
+  </button>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════
+   TAB SWITCHING
+═══════════════════════════════════════════ */
+function switchTab(name, el) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + name).classList.add('active');
+  el.classList.add('active');
+}
+
+/* ═══════════════════════════════════════════
+   HELPERS
+═══════════════════════════════════════════ */
+function setNav(prefix, steps, idx) {
+  document.getElementById(prefix + '-prev').disabled = idx === 0;
+  document.getElementById(prefix + '-next').disabled = idx === steps.length - 1;
+  document.getElementById(prefix + '-ctr').textContent =
+    steps.length ? `الخطوة ${idx + 1} من ${steps.length}` : '';
+}
+
+/* ═══════════════════════════════════════════
+   ── DIVISION ──────────────────────────────
+═══════════════════════════════════════════ */
+let divSteps = [], divIdx = 0;
+
+function startDiv() {
+  const a = parseInt(document.getElementById('div-a').value);
+  const b = parseInt(document.getElementById('div-b').value);
+  if (!a || !b || b === 0) return;
+  divSteps = buildDivSteps(a, b);
+  divIdx = 0;
+  renderDiv();
+  setNav('div', divSteps, divIdx);
+}
+
+function navDiv(d) {
+  divIdx = Math.max(0, Math.min(divSteps.length - 1, divIdx + d));
+  renderDiv();
+  setNav('div', divSteps, divIdx);
+}
+
+/* ─── Division: pre-computed rows ─── */
+let _divRows = [];          // all work rows (product + result)
+let _divDivRows = [];       // divisor-position rows at bottom
+let _divN = 0;
+let _divDividend = [];
+let _divQuotientFinal = [];
+
+function buildDivSteps(A, B) {
+  const aStr = String(A), bStr = String(B);
+  const n = aStr.length, m = bStr.length;
+  const dD = aStr.split('').map(Number);   // dividend digits (original)
+  const dB = bStr.split('').map(Number);   // divisor digits
+
+  /* place a number right-aligned at column `rightCol` into an n-cell array */
+  function place(value, rightCol) {
+    const cells = new Array(n).fill(null);
+    const s = String(value);
+    for (let i = 0; i < s.length; i++) {
+      const c = rightCol - s.length + 1 + i;
+      if (c >= 0 && c < n) cells[c] = +s[i];
+    }
+    return cells;
+  }
+
+  const workRows = [];   // { cells, underline, color, roundIdx, desc }
+  const divRows  = [];   // { cells }  — divisor copies at bottom
+  const qFinal   = new Array(n).fill(null);
+  const roundPV  = {};   // partial value used at each offset (for step descriptions)
+  const wDig     = [...dD];  // working digit array (modified as we subtract)
+
+  /* find first offset where partial >= B */
+  let startOff = 0;
+  outer: for (let k = 0; k <= n - m; k++) {
+    let v = 0;
+    for (let i = 0; i <= k + m - 1; i++) v = v * 10 + wDig[i];
+    if (v >= B) { startOff = k; break outer; }
+    if (k === n - m) startOff = k;
+  }
+
+  const COLORS = ['#4ade80','#60a5fa','#f59e0b','#f472b6','#a78bfa'];
+
+  for (let off = startOff; off <= n - m; off++) {
+    /* record divisor position row */
+    const dc = new Array(n).fill(null);
+    for (let j = 0; j < m; j++) dc[off + j] = dB[j];
+    divRows.push({ cells: dc });
+
+    /* compute partial = wDig[0..off+m-1] as number */
+    let pv = 0;
+    for (let i = 0; i <= off + m - 1; i++) pv = pv * 10 + wDig[i];
+    roundPV[off] = pv;
+    const q = Math.min(9, Math.floor(pv / B));
+    qFinal[off + m - 1] = q;
+
+    if (q === 0) continue;   // no work rows for zero digit
+
+    const col = COLORS[off % COLORS.length];
+
+    /* column-by-column subtraction */
+    let running = 0;
+    for (let i = 0; i < off; i++) running = running * 10 + wDig[i];  // prefix
+
+    for (let j = 0; j < m; j++) {
+      const c = off + j;
+      running = running * 10 + wDig[c];
+      const prod   = q * dB[j];
+      const result = running - prod;
+
+      /* product row (underlined) */
+      workRows.push({
+        cells: place(prod, c),
+        underline: true,
+        color: col,
+        roundIdx: off,
+        desc: `${q} × ${dB[j]} = ${prod}`
+      });
+      /* result row */
+      workRows.push({
+        cells: place(result, c),
+        underline: false,
+        color: col,
+        roundIdx: off,
+        desc: `${running} − ${prod} = ${result}`
+      });
+
+      running = result;
+
+      /* update wDig so next j uses updated values */
+      const rs2 = String(running < 0 ? 0 : running);
+      for (let ci = 0; ci <= c; ci++) wDig[ci] = 0;
+      for (let p = 0; p < rs2.length; p++) {
+        const tc = c - rs2.length + 1 + p;
+        if (tc >= 0) wDig[tc] = +rs2[p];
+      }
+    }
+  }
+
+  const finalQ   = parseInt(qFinal.map(d => d ?? 0).join('')) || 0;
+  const finalRem = parseInt(wDig.join('')) || 0;
+
+  /* store for renderer */
+  _divRows          = workRows;
+  _divDivRows       = divRows;
+  _divN             = n;
+  _divDividend      = dD;
+  _divQuotientFinal = qFinal;
+
+  /* ── build step list ── */
+  const steps = [];
+  const qRev  = new Array(n).fill(null);
+  let   wVis  = 0, dVis = 0;
+
+  steps.push({
+    desc: `نريد قسمة ${A} على ${B}. نرسم جدولاً بـ${n} أعمدة. نكتب المقسوم في الصف الثاني، ثم نضع المقسوم عليه (${B}) بحيث يبدأ من أقصى اليسار.`,
+    wVis: 0, dVis: 0, quot: [...qRev], final: false
+  });
+
+  let ri = 0;  /* index into workRows */
+  for (let off = startOff; off <= n - m; off++) {
+    dVis++;
+    const q    = qFinal[off + m - 1];
+    const pv   = roundPV[off];
+    const posLabel = off + m - 1;   // column index where quotient digit goes
+
+    if (q === 0) {
+      /* zero quotient digit */
+      qRev[posLabel] = 0;
+      steps.push({
+        desc: `المقسوم الجزئي (الأرقام من العمود 0 حتى العمود ${posLabel}) = ${pv}، وهو أصغر من ${B}. إذن رقم الخارج في العمود ${posLabel} = 0. ننقل المقسوم عليه خطوة يمين.`,
+        wVis, dVis, quot: [...qRev], final: false
+      });
+      continue;
+    }
+
+    /* ── Step: announce quotient digit (BEFORE work rows) ── */
+    qRev[posLabel] = q;
+    steps.push({
+      desc: `المقسوم الجزئي (الأرقام 0 حتى ${posLabel}) = ${pv}. رقم الخارج = ⌊${pv} ÷ ${B}⌋ = ${q}. نكتبه في صف الخارج عند العمود ${posLabel}.`,
+      wVis, dVis, quot: [...qRev], final: false
+    });
+
+    /* ── Work rows: one step per divisor digit ── */
+    for (let j = 0; j < m; j++) {
+      const pr = workRows[ri];    // product row
+      const rs = workRows[ri+1];  // result row
+      ri += 2;
+      wVis += 2;
+
+      steps.push({
+        desc: `${pr.desc} — نكتب الناتج في العمود ${off+j} ونضع خطاً تحته.`,
+        wVis, dVis, quot: [...qRev], final: false, highlightRow: wVis - 2
+      });
+      steps.push({
+        desc: rs.desc + (j === m - 1 ? ` — انتهت المرتبة، الباقي الجديد في طرف اليمين.` : ''),
+        wVis, dVis, quot: [...qRev], final: false, highlightRow: wVis - 1
+      });
+    }
+  }
+
+  steps.push({
+    desc: `✓ انتهت القسمة. الخارج = ${finalQ} والباقي = ${finalRem}.`,
+    wVis: workRows.length, dVis: divRows.length,
+    quot: [...qFinal], final: true, finalQ, finalR: finalRem
+  });
+
+  return steps;
+}
+
+function renderDiv() {
+  const s  = divSteps[divIdx];
+  const n  = _divN || _divDividend.length || 1;
+  const bStr = String(document.getElementById('div-b').value);
+  const m  = bStr.length;
+
+  document.getElementById('div-desc').textContent = s.desc;
+
+  /* render a single n-cell grid row */
+  function rowHtml(cells, extraCls = '', style = '') {
+    let h = `<div class="grid-row${extraCls ? ' ' + extraCls : ''}" style="${style}">`;
+    for (let i = 0; i < n; i++) {
+      const v = cells[i];
+      h += `<div class="cell" style="font-size:20px">${v !== null && v !== undefined ? v : ''}</div>`;
+    }
+    h += '</div>';
+    return h;
+  }
+
+  let h = `<div class="div-grid" style="direction:ltr">`;
+
+  /* ── quotient row ── */
+  h += `<div class="row-label" style="direction:rtl">الخارج (ناتج القسمة)</div>`;
+  h += `<div class="grid-row">`;
+  for (let i = 0; i < n; i++) {
+    const q = s.quot ? s.quot[i] : null;
+    h += `<div class="cell cell-q">${q !== null && q !== undefined ? q : ''}</div>`;
+  }
+  h += `</div>`;
+
+  /* separator */
+  h += `<div class="h-rule" style="width:${n * 42}px"></div>`;
+
+  /* ── dividend row ── */
+  h += `<div class="row-label" style="direction:rtl;margin-top:4px">المقسوم</div>`;
+  h += `<div class="grid-row">`;
+  for (let i = 0; i < n; i++) {
+    h += `<div class="cell cell-d">${_divDividend[i] ?? ''}</div>`;
+  }
+  h += `</div>`;
+
+  /* separator */
+  h += `<div class="h-rule" style="width:${n * 42}px;margin-top:2px"></div>`;
+
+  /* ── work rows (revealed progressively) ── */
+  const visCount = s.wVis || 0;
+  for (let r = 0; r < visCount; r++) {
+    const row = _divRows[r];
+    if (!row) continue;
+    const isHighlight = s.highlightRow === r;
+    const borderBottom = row.underline
+      ? `border-bottom:2px solid ${row.color};padding-bottom:2px;`
+      : '';
+    h += `<div class="grid-row" style="${isHighlight ? 'background:rgba(245,158,11,0.10);border-radius:4px;' : ''}${borderBottom}">`;
+    for (let i = 0; i < n; i++) {
+      const v = row.cells[i];
+      const colorStyle = (v !== null && v !== undefined) ? `color:${row.color};` : '';
+      h += `<div class="cell" style="font-size:19px;${colorStyle}">${v !== null && v !== undefined ? v : ''}</div>`;
+    }
+    h += `</div>`;
+  }
+
+  /* ── divisor rows at bottom ── */
+  if (_divDivRows.length > 0) {
+    h += `<div class="h-rule" style="width:${n * 42}px;margin-top:6px"></div>`;
+  }
+  const dVis = s.dVis || 0;
+  for (let r = 0; r < dVis; r++) {
+    const row = _divDivRows[r];
+    if (!row) continue;
+    h += `<div class="grid-row">`;
+    for (let i = 0; i < n; i++) {
+      const v = row.cells[i];
+      h += `<div class="cell" style="font-size:19px;color:#60a5fa;">${v !== null && v !== undefined ? v : ''}</div>`;
+    }
+    h += `</div>`;
+  }
+
+  /* ── final result ── */
+  if (s.final) {
+    h += `<div class="result-box result-ok" style="margin-top:16px;direction:rtl">
+      <div class="result-text">${document.getElementById('div-a').value} ÷ ${document.getElementById('div-b').value} = ${s.finalQ} &nbsp;|&nbsp; الباقي ${s.finalR}</div>
+    </div>`;
+  }
+
+  h += `</div>`;
+  document.getElementById('div-viz').innerHTML = h;
+}
+
+/* ═══════════════════════════════════════════
+   ── SQUARE ROOT ───────────────────────────
+═══════════════════════════════════════════ */
+let sqSteps = [], sqIdx = 0;
+
+function startSq() {
+  const n = parseInt(document.getElementById('sq-n').value);
+  if (!n || n < 1) return;
+  sqSteps = buildSqSteps(n);
+  sqIdx = 0;
+  renderSq();
+  setNav('sq', sqSteps, sqIdx);
+}
+
+function navSq(d) {
+  sqIdx = Math.max(0, Math.min(sqSteps.length - 1, sqIdx + d));
+  renderSq();
+  setNav('sq', sqSteps, sqIdx);
+}
+
+function buildSqSteps(N) {
+  const steps = [];
+  const nStr = String(N);
+  const padded = nStr.length % 2 === 1 ? '0' + nStr : nStr;
+  const pairs = [];
+  for (let i = 0; i < padded.length; i += 2)
+    pairs.push(padded.substring(i, i + 2));
+  const pairVals = pairs.map(p => parseInt(p));
+
+  steps.push({
+    desc: `نريد إيجاد الجذر التربيعي للعدد ${N}. الخطوة الأولى: نقسّم الأرقام إلى مجموعات من رقمين بدءاً من اليمين → ${pairs.map(p => parseInt(p)).join(' | ')}`,
+    pairs,
+    activePair: -1,
+    rootDigits: [],
+    working: null,
+    final: false,
+  });
+
+  let rootDigits = [];
+  let remainder = 0;
+
+  for (let i = 0; i < pairs.length; i++) {
+    const pv = pairVals[i];
+    const current = remainder * 100 + pv;
+
+    steps.push({
+      desc: `نأخذ المجموعة "${pairs[i]}" (= ${pv}). مع الباقي السابق: ${remainder > 0 ? `${remainder} × 100 + ${pv} = ` : ''}${current}`,
+      pairs,
+      activePair: i,
+      rootDigits: [...rootDigits],
+      working: { current, phase: 'bring' },
+      remainder,
+      final: false,
+    });
+
+    let d, trial, lowerBase;
+
+    if (rootDigits.length === 0) {
+      d = Math.floor(Math.sqrt(current));
+      while (d * d > current) d--;
+      trial = d * d;
+
+      steps.push({
+        desc: `نجد أكبر رقم "ف" بحيث ف² ≤ ${current}.  →  ف = ${d}  لأن ${d}² = ${trial} ≤ ${current}${d < 9 ? ` و ${d+1}² = ${(d+1)**2} > ${current}` : ''}`,
+        pairs,
+        activePair: i,
+        rootDigits: [...rootDigits],
+        working: { current, phase: 'find', d, trial },
+        remainder,
+        final: false,
+      });
+    } else {
+      const root = parseInt(rootDigits.join(''));
+      lowerBase = 2 * root;
+      d = 0;
+      for (let k = 9; k >= 0; k--) {
+        if ((lowerBase * 10 + k) * k <= current) { d = k; break; }
+      }
+      trial = (lowerBase * 10 + d) * d;
+
+      steps.push({
+        desc: `العدد السفلي = 2 × ${root} = ${lowerBase}. نجد "ف" بحيث (${lowerBase}0 + ف) × ف ≤ ${current}.  →  ف = ${d}  لأن (${lowerBase * 10 + d}) × ${d} = ${trial} ≤ ${current}`,
+        pairs,
+        activePair: i,
+        rootDigits: [...rootDigits],
+        working: { current, phase: 'find', d, trial, lowerBase },
+        remainder,
+        final: false,
+      });
+    }
+
+    const newRem = current - trial;
+    rootDigits.push(d);
+
+    steps.push({
+      desc: `نطرح ${trial} من ${current}: ${current} − ${trial} = ${newRem}.  الجذر حتى الآن: ${rootDigits.join('')}`,
+      pairs,
+      activePair: i,
+      rootDigits: [...rootDigits],
+      working: { current, phase: 'sub', d, trial, newRem, lowerBase },
+      remainder: newRem,
+      final: false,
+    });
+
+    remainder = newRem;
+  }
+
+  const finalRoot = parseInt(rootDigits.join(''));
+  steps.push({
+    desc: `✓ الجذر التربيعي لـ ${N} ≈ ${finalRoot}  (الباقي: ${remainder}).  تحقق: ${finalRoot}² = ${finalRoot * finalRoot}`,
+    pairs,
+    activePair: pairs.length - 1,
+    rootDigits,
+    working: null,
+    remainder,
+    final: true,
+    finalRoot,
+    N,
+  });
+
+  return steps;
+}
+
+function renderSq() {
+  const s = sqSteps[sqIdx];
+  document.getElementById('sq-desc').textContent = s.desc;
+
+  let h = '<div style="direction:ltr">';
+
+  // Pairs row
+  h += '<div class="row-label" style="direction:rtl">المجموعات</div>';
+  h += '<div class="pairs-row">';
+  for (let i = 0; i < s.pairs.length; i++) {
+    if (i > 0) h += '<div class="pair-sep">|</div>';
+    const done = i < s.activePair || (s.final && i <= s.activePair);
+    const active = i === s.activePair && !s.final;
+    h += '<div class="pair-block">';
+    for (const ch of s.pairs[i]) {
+      let cls = 'pair-cell';
+      if (active) cls += ' pair-active';
+      else if (i < s.activePair || s.final) cls += ' pair-done';
+      h += `<div class="${cls}">${ch}</div>`;
+    }
+    h += '</div>';
+  }
+  h += '</div>';
+
+  // Root row
+  h += '<div class="row-label" style="direction:rtl">الجذر</div>';
+  h += '<div class="root-row">';
+  for (let i = 0; i < s.pairs.length; i++) {
+    const d = s.rootDigits[i];
+    h += `<div class="root-cell">${d !== undefined ? d : ''}</div>`;
+  }
+  h += '</div>';
+
+  // Working details
+  if (s.working) {
+    const w = s.working;
+    h += '<div class="working-box">';
+    h += `<div>العدد الحالي: <span class="wval" style="color:#f59e0b">${w.current}</span></div>`;
+    if (w.phase === 'find' || w.phase === 'sub') {
+      if (w.lowerBase !== undefined)
+        h += `<div>العدد السفلي: <span class="wval" style="color:#60a5fa">${w.lowerBase}</span></div>`;
+      h += `<div>رقم الجذر الجديد "ف": <span class="wval" style="color:#4ade80">${w.d}</span></div>`;
+      h += `<div>المطروح: <span class="wval" style="color:#fb923c">${w.trial}</span></div>`;
+    }
+    if (w.phase === 'sub')
+      h += `<div>الباقي: <span class="wval" style="color:#a78bfa">${w.newRem}</span></div>`;
+    h += '</div>';
+  }
+
+  if (s.final) {
+    h += `<div class="result-box result-ok" style="margin-top:16px;direction:rtl">
+      <div class="result-text">√${s.N} ≈ ${s.finalRoot} &nbsp; (الباقي: ${s.remainder})</div>
+    </div>`;
+  }
+
+  h += '</div>';
+  document.getElementById('sq-viz').innerHTML = h;
+}
+
+/* ═══════════════════════════════════════════
+   ── MIZAN ─────────────────────────────────
+═══════════════════════════════════════════ */
+let mzSteps = [], mzIdx = 0;
+
+function mzOpChange() {
+  const op = document.getElementById('mz-op').value;
+  document.getElementById('mz-rem-group').style.display = op === '÷' ? 'flex' : 'none';
+}
+
+function startMz() {
+  const a   = parseInt(document.getElementById('mz-a').value);
+  const op  = document.getElementById('mz-op').value;
+  const b   = parseInt(document.getElementById('mz-b').value);
+  const r   = parseInt(document.getElementById('mz-r').value);
+  const rem = op === '÷' ? (parseInt(document.getElementById('mz-rem').value) || 0) : 0;
+  if (isNaN(a) || isNaN(b) || isNaN(r)) return;
+  mzSteps = buildMzSteps(a, op, b, r, rem);
+  mzIdx   = 0;
+  renderMz();
+  setNav('mz', mzSteps, mzIdx);
+}
+
+function navMz(d) {
+  mzIdx = Math.max(0, Math.min(mzSteps.length - 1, mzIdx + d));
+  renderMz();
+  setNav('mz', mzSteps, mzIdx);
+}
+
+function dr(n) {
+  n = Math.abs(n);
+  if (n === 0) return 0;
+  const r = n % 9;
+  return r === 0 ? 9 : r;
+}
+
+function drHistory(n) {
+  n = Math.abs(n);
+  if (n <= 9) return [n];
+  const digitSum = String(n).split('').reduce((acc, d) => acc + parseInt(d), 0);
+  const hist = [n, digitSum];
+  let v = digitSum;
+  while (v > 9) { v -= 9; hist.push(v); }
+  return hist;
+}
+
+function buildMzSteps(A, op, B, R, Rem) {
+  Rem = Rem || 0;
+  const steps   = [];
+  const digStr  = v => String(v).split('').join(' + ');
+
+  const h1   = drHistory(A);
+  const h2   = drHistory(B);
+  const h3   = drHistory(R);
+  const hRem = Rem > 0 ? drHistory(Rem) : [0];
+  const dr1   = h1[h1.length - 1];
+  const dr2   = h2[h2.length - 1];
+  const dr3   = h3[h3.length - 1];
+  const drRem = hRem[hRem.length - 1];
+  const hasDivRem = op === '÷' && Rem > 0;
+
+  let opVal, drOp, balanced;
+  if (op === '÷') {
+    /* Textbook formula: (dr(quotient) × dr(divisor)) + dr(remainder) = dr(dividend) */
+    opVal    = dr3 * dr2 + drRem;
+    drOp     = dr(opVal);
+    balanced = drOp === dr1;
+  } else {
+    if (op === '+') opVal = dr1 + dr2;
+    else if (op === '-') opVal = dr1 >= dr2 ? dr1 - dr2 : dr1 - dr2 + 9;
+    else opVal = dr1 * dr2;
+    drOp     = dr(opVal);
+    balanced = drOp === dr3;
+  }
+
+  const opD = op === '-' ? '−' : op;
+
+  /* ── Step 0: intro ── */
+  let introNote = '';
+  if (op === '÷') {
+    introNote = hasDivRem
+      ? ' (للقسمة مع باقٍ: (جذر الخارج × جذر المقسوم عليه) + جذر الباقي = جذر المقسوم)'
+      : ' (للقسمة: جذر الخارج × جذر المقسوم عليه = جذر المقسوم)';
+  }
+  steps.push({
+    desc: `نريد التحقق من: ${A} ${opD} ${B} = ${R}${Rem > 0 ? ' باقٍ ' + Rem : ''}. سنحسب ميزان كل عدد: نجمع أرقامه مرة واحدة، ثم نطرح 9 تكراراً حتى يصبح الناتج رقماً أحادياً.${introNote}`,
+    phase: 'init',
+    show1: false, show2: false, show3: false, showRem: false, showOp: false, showBal: false,
+    h1: [], h2: [], h3: [], hRem: [],
+    dr1: null, dr2: null, dr3: null, drRem: null, drOp: null, balanced: null, hasDivRem,
+  });
+
+  /* ── dr1 steps (dividend / first number) ── */
+  for (let i = 1; i < h1.length; i++) {
+    const isLast1 = i === h1.length - 1;
+    const tail1 = isLast1 ? ` → الميزان: ${h1[i]}` : '';
+    const d1 = i === 1
+      ? `ميزان ${A}: نجمع الأرقام: ${digStr(h1[0])} = ${h1[1]}${tail1}`
+      : `${h1[i-1]} أكبر من 9 — نطرح تسعة: ${h1[i-1]} − 9 = ${h1[i]}${tail1}`;
+    steps.push({
+      desc: d1,
+      phase: 'dr1', show1: true, show2: false, show3: false, showRem: false, showOp: false, showBal: false,
+      h1: h1.slice(0, i+1), h2: [], h3: [], hRem: [],
+      dr1: isLast1 ? dr1 : null, dr2: null, dr3: null, drRem: null, drOp: null, balanced: null, hasDivRem,
+    });
+  }
+  if (h1.length === 1) {
+    steps.push({
+      desc: `${A} رقم أحادي (≤ 9) → ميزانه هو ${dr1}`,
+      phase: 'dr1', show1: true, show2: false, show3: false, showRem: false, showOp: false, showBal: false,
+      h1, h2: [], h3: [], hRem: [],
+      dr1, dr2: null, dr3: null, drRem: null, drOp: null, balanced: null, hasDivRem,
+    });
+  }
+
+  /* ── dr2 steps (divisor / second number) ── */
+  for (let i = 1; i < h2.length; i++) {
+    const isLast2 = i === h2.length - 1;
+    const tail2 = isLast2 ? ` → الميزان: ${h2[i]}` : '';
+    const d2 = i === 1
+      ? `ميزان ${B}: نجمع الأرقام: ${digStr(h2[0])} = ${h2[1]}${tail2}`
+      : `${h2[i-1]} أكبر من 9 — نطرح تسعة: ${h2[i-1]} − 9 = ${h2[i]}${tail2}`;
+    steps.push({
+      desc: d2,
+      phase: 'dr2', show1: true, show2: true, show3: false, showRem: false, showOp: false, showBal: false,
+      h1, h2: h2.slice(0, i+1), h3: [], hRem: [],
+      dr1, dr2: isLast2 ? dr2 : null, dr3: null, drRem: null, drOp: null, balanced: null, hasDivRem,
+    });
+  }
+  if (h2.length === 1) {
+    steps.push({
+      desc: `${B} رقم أحادي (≤ 9) → ميزانه هو ${dr2}`,
+      phase: 'dr2', show1: true, show2: true, show3: false, showRem: false, showOp: false, showBal: false,
+      h1, h2, h3: [], hRem: [],
+      dr1, dr2, dr3: null, drRem: null, drOp: null, balanced: null, hasDivRem,
+    });
+  }
+
+  /* ── dr3 steps (quotient / result) ── */
+  for (let i = 1; i < h3.length; i++) {
+    const isLast3 = i === h3.length - 1;
+    const tail3 = isLast3 ? ` → الميزان: ${h3[i]}` : '';
+    const d3 = i === 1
+      ? `ميزان ${R}: نجمع الأرقام: ${digStr(h3[0])} = ${h3[1]}${tail3}`
+      : `${h3[i-1]} أكبر من 9 — نطرح تسعة: ${h3[i-1]} − 9 = ${h3[i]}${tail3}`;
+    steps.push({
+      desc: d3,
+      phase: 'dr3', show1: true, show2: true, show3: true, showRem: false, showOp: false, showBal: false,
+      h1, h2, h3: h3.slice(0, i+1), hRem: [],
+      dr1, dr2, dr3: isLast3 ? dr3 : null, drRem: null, drOp: null, balanced: null, hasDivRem,
+    });
+  }
+  if (h3.length === 1) {
+    steps.push({
+      desc: `${R} رقم أحادي (≤ 9) → ميزانه هو ${dr3}`,
+      phase: 'dr3', show1: true, show2: true, show3: true, showRem: false, showOp: false, showBal: false,
+      h1, h2, h3, hRem: [],
+      dr1, dr2, dr3, drRem: null, drOp: null, balanced: null, hasDivRem,
+    });
+  }
+
+  /* ── drRem steps (remainder — division with remainder only) ── */
+  if (hasDivRem) {
+    for (let i = 1; i < hRem.length; i++) {
+      const isLastR = i === hRem.length - 1;
+      const tailR = isLastR ? ` → الميزان: ${hRem[i]}` : '';
+      const dR = i === 1
+        ? `ميزان الباقي ${Rem}: نجمع الأرقام: ${digStr(hRem[0])} = ${hRem[1]}${tailR}`
+        : `${hRem[i-1]} أكبر من 9 — نطرح تسعة: ${hRem[i-1]} − 9 = ${hRem[i]}${tailR}`;
+      steps.push({
+        desc: dR,
+        phase: 'drRem', show1: true, show2: true, show3: true, showRem: true, showOp: false, showBal: false,
+        h1, h2, h3, hRem: hRem.slice(0, i+1),
+        dr1, dr2, dr3, drRem: isLastR ? drRem : null, drOp: null, balanced: null, hasDivRem,
+      });
+    }
+    if (hRem.length === 1) {
+      steps.push({
+        desc: `${Rem} رقم أحادي (≤ 9) → ميزانه هو ${drRem}`,
+        phase: 'drRem', show1: true, show2: true, show3: true, showRem: true, showOp: false, showBal: false,
+        h1, h2, h3, hRem,
+        dr1, dr2, dr3, drRem, drOp: null, balanced: null, hasDivRem,
+      });
+    }
+  }
+
+  /* ── Operation step ── */
+  let opDesc;
+  if (op === '÷') {
+    opDesc = hasDivRem
+      ? `نطبق صيغة الميزان: (جذر الخارج × جذر المقسوم عليه) + جذر الباقي = (${dr3} × ${dr2}) + ${drRem} = ${opVal} → الجذر الرقمي: ${drOp}. يجب أن يساوي جذر المقسوم (${dr1}).`
+      : `للتحقق من القسمة نضرب: جذر الخارج (${dr3}) × جذر المقسوم عليه (${dr2}) = ${opVal} → الجذر الرقمي: ${drOp}. يجب أن يساوي جذر المقسوم (${dr1}).`;
+  } else {
+    opDesc = `نطبق العملية على الجذرين الرقميين: ${dr1} ${opD} ${dr2} = ${opVal} → الجذر الرقمي: ${drOp}`;
+  }
+  steps.push({
+    desc: opDesc,
+    phase: 'op', show1: true, show2: true, show3: true, showRem: hasDivRem, showOp: true, showBal: false,
+    h1, h2, h3, hRem,
+    dr1, dr2, dr3, drRem, drOp, balanced: null, opVal, hasDivRem,
+  });
+
+  /* ── Balance step ── */
+  let balDesc;
+  if (op === '÷') {
+    if (hasDivRem) {
+      balDesc = balanced
+        ? `✓ الميزان متوازن! (جذر(${R}) × جذر(${B})) + جذر(${Rem}) = ${drOp} = جذر(${A}) = ${dr1}. القسمة صحيحة.`
+        : `✗ الميزان غير متوازن! (جذر(${R}) × جذر(${B})) + جذر(${Rem}) = ${drOp} ≠ جذر(${A}) = ${dr1}. القسمة خاطئة.`;
+    } else {
+      balDesc = balanced
+        ? `✓ الميزان متوازن! جذر(${R}) × جذر(${B}) = ${drOp} = جذر(${A}) = ${dr1}. القسمة صحيحة.`
+        : `✗ الميزان غير متوازن! جذر(${R}) × جذر(${B}) = ${drOp} ≠ جذر(${A}) = ${dr1}. القسمة خاطئة.`;
+    }
+  } else {
+    balDesc = balanced
+      ? `✓ الميزان متوازن! الجذر الرقمي للعملية (${drOp}) = الجذر الرقمي للناتج (${dr3}). العملية صحيحة.`
+      : `✗ الميزان غير متوازن! الجذر الرقمي للعملية (${drOp}) ≠ الجذر الرقمي للناتج (${dr3}). العملية خاطئة.`;
+  }
+  steps.push({
+    desc: balDesc,
+    phase: 'balance', show1: true, show2: true, show3: true, showRem: hasDivRem, showOp: true, showBal: true,
+    h1, h2, h3, hRem,
+    dr1, dr2, dr3, drRem, drOp, balanced, opVal, hasDivRem,
+  });
+
+  return steps;
+}
+
+function renderMz() {
+  const s   = mzSteps[mzIdx];
+  const A   = document.getElementById('mz-a').value;
+  const op  = document.getElementById('mz-op').value;
+  const B   = document.getElementById('mz-b').value;
+  const R   = document.getElementById('mz-r').value;
+  const Rem = op === '÷' ? (parseInt(document.getElementById('mz-rem').value) || 0) : 0;
+  const opD = op === '-' ? '−' : op;
+  const hasDivRem = op === '÷' && Rem > 0;
+
+  document.getElementById('mz-desc').textContent = s.desc;
+
+  const chainHTML = hist => {
+    if (!hist || hist.length === 0) return '';
+    return hist.map((v, i) =>
+      `<span style="color:${i === hist.length-1 ? '#4ade80' : '#60a5fa'}">${v}</span>`
+    ).join(' <span style="color:#475569">→</span> ');
+  };
+
+  const titleA = op === '÷' ? 'المقسوم'       : 'العدد الأول';
+  const titleB = op === '÷' ? 'المقسوم عليه'  : 'العدد الثاني';
+  const titleR = op === '÷' ? 'الخارج'        : 'الناتج المزعوم';
+
+  const eqStr = hasDivRem ? `${A} ${opD} ${B} = ${R} باقٍ ${Rem}` : `${A} ${opD} ${B} = ${R}`;
+
+  let h = '<div class="miz-layout">';
+  h += `<div class="miz-equation">${eqStr}</div>`;
+  h += '<div class="miz-nums">';
+
+  /* Box A */
+  h += '<div class="miz-box">';
+  h += `<div class="miz-box-title">${titleA}</div>`;
+  h += `<div class="miz-big">${A}</div>`;
+  if (s.show1 && s.h1.length > 0) h += `<div class="miz-chain">${chainHTML(s.h1)}</div>`;
+  if (s.dr1 !== null) h += `<div class="miz-dr">الجذر الرقمي: <b>${s.dr1}</b></div>`;
+  h += '</div>';
+
+  h += `<div class="miz-op-sym">${opD}</div>`;
+
+  /* Box B */
+  h += '<div class="miz-box">';
+  h += `<div class="miz-box-title">${titleB}</div>`;
+  h += `<div class="miz-big">${B}</div>`;
+  if (s.show2 && s.h2.length > 0) h += `<div class="miz-chain">${chainHTML(s.h2)}</div>`;
+  if (s.dr2 !== null) h += `<div class="miz-dr">الجذر الرقمي: <b>${s.dr2}</b></div>`;
+  h += '</div>';
+
+  h += `<div class="miz-eq-sym">=</div>`;
+
+  /* Box R (quotient / result) */
+  h += '<div class="miz-box">';
+  h += `<div class="miz-box-title">${titleR}</div>`;
+  h += `<div class="miz-big">${R}</div>`;
+  if (s.show3 && s.h3.length > 0) h += `<div class="miz-chain">${chainHTML(s.h3)}</div>`;
+  if (s.dr3 !== null) h += `<div class="miz-dr">الجذر الرقمي: <b>${s.dr3}</b></div>`;
+  h += '</div>';
+
+  /* Box Rem (remainder — division with remainder only) */
+  if (hasDivRem) {
+    h += `<div style="font-size:16px;color:#64748b;align-self:center">باقٍ</div>`;
+    h += '<div class="miz-box">';
+    h += `<div class="miz-box-title">الباقي</div>`;
+    h += `<div class="miz-big">${Rem}</div>`;
+    if (s.showRem && s.hRem && s.hRem.length > 0) h += `<div class="miz-chain">${chainHTML(s.hRem)}</div>`;
+    if (s.drRem !== null) h += `<div class="miz-dr">الجذر الرقمي: <b>${s.drRem}</b></div>`;
+    h += '</div>';
+  }
+
+  h += '</div>'; /* /miz-nums */
+
+  /* Operation result box */
+  if (s.showOp && s.drOp !== null) {
+    h += `<div class="op-result-box">`;
+    if (op === '÷') {
+      if (hasDivRem) {
+        h += `الجذر الرقمي للصيغة: &nbsp; (${s.dr3} × ${s.dr2}) + ${s.drRem} = ${s.opVal} &nbsp; → &nbsp; <span style="color:#4ade80;font-size:22px;font-weight:bold">${s.drOp}</span>`;
+      } else {
+        h += `الجذر الرقمي للعملية: &nbsp; ${s.dr3} × ${s.dr2} = ${s.opVal} &nbsp; → &nbsp; <span style="color:#4ade80;font-size:22px;font-weight:bold">${s.drOp}</span>`;
+      }
+    } else {
+      h += `الجذر الرقمي للعملية: &nbsp; ${s.dr1} ${opD} ${s.dr2} = ${s.opVal} &nbsp; → &nbsp; <span style="color:#4ade80;font-size:22px;font-weight:bold">${s.drOp}</span>`;
+    }
+    h += `</div>`;
+  }
+
+  /* Balance scale */
+  if (s.showBal) {
+    const tilt   = s.balanced ? 0 : 18;
+    const lColor = s.balanced ? '#4ade80' : '#f59e0b';
+    const rColor = s.balanced ? '#4ade80' : '#f87171';
+    const isDivision = op === '÷';
+    const leftVal  = s.drOp;
+    const rightVal = isDivision ? s.dr1 : s.dr3;
+    let leftLbl, rightLbl;
+    if (isDivision) {
+      leftLbl  = hasDivRem ? '(جذر.خارج×جذر.م.عليه)+جذر.باقي' : 'جذر(خارج)×جذر(م.عليه)';
+      rightLbl = 'جذر(المقسوم)';
+    } else {
+      leftLbl  = 'العملية';
+      rightLbl = 'الناتج';
+    }
+
+    h += `<div class="balance-wrap">
+    <svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg">
+      <rect x="197" y="55" width="6" height="130" rx="3" fill="#475569"/>
+      <rect x="155" y="178" width="110" height="8" rx="4" fill="#475569"/>
+      <circle cx="200" cy="58" r="8" fill="#94a3b8"/>
+      <g transform="rotate(${tilt}, 200, 58)">
+        <rect x="55" y="54" width="290" height="8" rx="4" fill="${s.balanced ? '#4ade80' : '#f59e0b'}"/>
+        <line x1="80"  y1="62" x2="60"  y2="115" stroke="#64748b" stroke-width="2"/>
+        <line x1="80"  y1="62" x2="100" y2="115" stroke="#64748b" stroke-width="2"/>
+        <path d="M 50 115 Q 80 132 110 115" fill="${lColor}" fill-opacity="0.25" stroke="${lColor}" stroke-width="2"/>
+        <text x="80" y="130" text-anchor="middle" fill="${lColor}" font-size="22" font-weight="bold">${leftVal}</text>
+        <text x="80" y="150" text-anchor="middle" fill="#64748b" font-size="9">${leftLbl}</text>
+        <line x1="320" y1="62" x2="300" y2="115" stroke="#64748b" stroke-width="2"/>
+        <line x1="320" y1="62" x2="340" y2="115" stroke="#64748b" stroke-width="2"/>
+        <path d="M 290 115 Q 320 132 350 115" fill="${rColor}" fill-opacity="0.25" stroke="${rColor}" stroke-width="2"/>
+        <text x="320" y="130" text-anchor="middle" fill="${rColor}" font-size="22" font-weight="bold">${rightVal}</text>
+        <text x="320" y="150" text-anchor="middle" fill="#64748b" font-size="10">${rightLbl}</text>
+      </g>
+    </svg></div>`;
+
+    h += `<div class="result-box ${s.balanced ? 'result-ok' : 'result-err'}">
+      <div class="result-text">${s.balanced ? '✓ العملية صحيحة' : '✗ العملية خاطئة'}</div>
+    </div>`;
+  }
+
+  h += '</div>';
+  document.getElementById('mz-viz').innerHTML = h;
+}
+</script>
+</body>
+</html>
